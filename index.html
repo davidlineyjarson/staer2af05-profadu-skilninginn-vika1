@@ -1,92 +1,375 @@
 <!DOCTYPE html>
-<html lang="is">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light">
-<title>Prófaðu skilninginn – Vika 1 | STÆR2AF05</title>
-<style>
-:root{--navy:#1b3553;--navy2:#345676;--teal:#0e7067;--tealsoft:#e7f5f1;--ink:#1f3142;--muted:#586a78;--line:#dbe5ec;--bg:#f3f7fa;--white:#fff;--error:#973b30;--errorbg:#fff0ee;--ok:#126b50;--okbg:#eaf7f0;--shadow:0 6px 22px rgba(33,58,82,.07)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.5}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.52}a{color:var(--teal)}button:focus-visible,input:focus-visible{outline:3px solid #8dc6ee;outline-offset:3px}.wrap{max-width:1040px;margin:0 auto;padding:0 18px}.masthead{background:linear-gradient(120deg,var(--navy),#264d64 70%,#106b64);color:white;padding:26px 0 22px}.eyebrow{color:#d6e9f0;text-transform:uppercase;letter-spacing:.11em;font-weight:700;font-size:.73rem}.masthead h1{margin:8px 0 5px;font-size:clamp(1.7rem,4vw,2.55rem);line-height:1.18}.masthead p{margin:7px 0 0;color:#e8f0f6;max-width:770px;font-size:.99rem}.mini{font-size:.78rem;color:var(--muted)}.pill{display:inline-block;font-size:.75rem;padding:3px 9px;border-radius:50px;background:#e6f1f4;color:var(--navy);font-weight:700}.masthead .pill{background:#d9ede9;color:#165c54}.tabscroll{background:white;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.035)}.tabs{display:flex;gap:4px;overflow-x:auto;white-space:nowrap;padding:8px 0}.tabs button{background:transparent;color:var(--navy2);border:0;border-radius:8px;padding:11px 13px;font-weight:700}.tabs button[aria-selected="true"]{background:var(--tealsoft);color:var(--teal)}.tabs .smallcount{font-size:.74rem;background:#eef2f6;border-radius:20px;padding:2px 6px;margin-left:5px}main{padding-top:22px;padding-bottom:52px}.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:clamp(16px,3vw,26px);box-shadow:var(--shadow);margin-bottom:16px}.panel h2{color:var(--navy);margin:0 0 9px;font-size:1.38rem}.lead{color:var(--muted);margin:4px 0 12px}.callout{border-left:4px solid var(--teal);background:var(--tealsoft);padding:12px 15px;border-radius:7px;margin:14px 0}.warning{border-left:4px solid #b78323;background:#fff7e5;padding:11px 14px;border-radius:7px;margin:13px 0}.hidden{display:none!important}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.btn{background:var(--teal);border:1px solid var(--teal);color:white;padding:10px 15px;border-radius:8px;font-weight:700}.btn:hover{background:#0a5953}.btn-secondary{background:white;border:1px solid #b4c9d2;color:var(--navy);padding:10px 15px;border-radius:8px;font-weight:700}.btn-secondary:hover{background:#f0f6f7}.btn-danger{background:#fff;border:1px solid #c79690;color:#853930;padding:10px 15px;border-radius:8px;font-weight:700}.progressbar{height:10px;background:#e5edf1;border-radius:8px;overflow:hidden;margin:10px 0}.progressbar>div{height:100%;background:var(--teal);transition:width .25s}.question{border:1px solid var(--line);border-radius:12px;padding:17px;margin:15px 0;background:#fdfefe}.qhead{font-size:.78rem;color:#667888;font-weight:700;letter-spacing:.02em}.qprompt{font-size:1.06rem;font-weight:700;color:var(--ink);margin:9px 0 12px}.option{display:flex;gap:10px;align-items:flex-start;border:1px solid #d7e3e9;border-radius:9px;padding:10px 12px;margin:8px 0;cursor:pointer;background:#fff}.option:hover{border-color:#96b8be;background:#f6fbfb}.option input{margin-top:4px;accent-color:var(--teal);flex:0 0 auto}.option:has(input:checked){border-color:var(--teal);background:#eef8f5}.feedback{padding:10px 13px;border-radius:8px;margin-top:10px;font-size:.94rem}.feedback.correct{background:var(--okbg);color:var(--ok)}.feedback.wrong{background:var(--errorbg);color:var(--error)}
-.more-info{margin-top:12px;border:1px solid rgba(22,95,85,.28);border-radius:9px;background:rgba(255,255,255,.68);color:var(--ink);padding:0 12px}
-.more-info summary{list-style:revert;cursor:pointer;color:var(--navy);font-weight:700;padding:11px 5px}
-.more-info summary:hover{text-decoration:underline}.more-info summary:focus-visible{outline:3px solid #8dc6ee;outline-offset:2px}
-.more-info-content{border-top:1px solid var(--line);padding:5px 5px 12px;line-height:1.65}
-.more-info-content p{margin:8px 0}.more-info-content mjx-container[display="true"]{overflow-x:auto;max-width:100%;overflow-y:hidden}
-.sectionheader{display:flex;gap:10px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}.qactions{margin-top:10px}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.metric{border:1px solid var(--line);border-radius:12px;padding:16px;background:white}.metric .num{font-weight:800;color:var(--navy);font-size:clamp(1.6rem,3.4vw,2.5rem);line-height:1.2}.metric .label{color:var(--muted);font-size:.85rem;margin-top:6px}.summarytable{width:100%;border-collapse:collapse;margin-top:16px}.summarytable th,.summarytable td{padding:12px 7px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:.91rem}.summarytable th{background:#f4f8fa;color:var(--navy)}.summarytable td:nth-child(2),.summarytable td:nth-child(3){font-variant-numeric:tabular-nums;white-space:nowrap}.summarytable tbody tr:nth-child(even){background:#fbfdfe}.note{color:#697987;font-size:.87rem}.foot{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);color:#637588;font-size:.86rem}noscript{display:block;background:#fff2c9;padding:18px}.tag-date{color:var(--muted);font-size:.9rem}.screenbox{border:2px dashed #b0cdd3;border-radius:14px;padding:16px;margin-top:16px;background:#fbfefe}#toast{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);background:#18374e;color:white;padding:10px 18px;border-radius:9px;box-shadow:var(--shadow);z-index:20;max-width:90vw}.introlist{margin:10px 0 0;padding-left:20px}.introlist li{margin:7px 0}.mjx-container{font-size:108% !important;}.compare-methods{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;font-size:.94rem;font-weight:400}.compare-methods>div{border:1px solid var(--line);background:#f5f9fa;border-radius:8px;padding:10px;overflow-x:auto}@media(max-width:650px){.compare-methods{grid-template-columns:1fr}}@media(max-width:650px){.wrap{padding:0 12px}.masthead{padding:21px 0}.tabs button{padding:10px 11px;font-size:.88rem}.metrics{grid-template-columns:1fr 1fr}.metric:last-child{grid-column:span 2}.summarytable th,.summarytable td{padding:9px 5px;font-size:.78rem}.question{padding:13px}.panel{padding:15px}.masthead h1{font-size:1.75rem}}@media print{body{background:white}.masthead,.tabscroll,.no-print,.btn,.btn-secondary,.btn-danger,#toast{display:none!important}main{padding:0}.panel{border:0;box-shadow:none;padding:4px}main section:not(#overview){display:none!important}#overview{display:block!important}.metric{break-inside:avoid}.screenbox{border:1px solid #aaa}.summarytable{page-break-inside:avoid}}
-.qprompt mjx-container[display="true"],.feedback mjx-container[display="true"]{overflow-x:auto;max-width:100%;overflow-y:hidden}.option span{min-width:0;max-width:100%}</style>
+<html lang="is"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light">
+<title>Vefbók – Vika 1 | STÆR2AF05</title><style>
+:root{--blue:#24445e;--navy:#18354d;--teal:#16665c;--green:#135b46;--muted:#516575;--bg:#f5f8fa;--line:#d4e1e6;--orange:#924d14}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:16px/1.62 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#1e3346}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #74b9e6;outline-offset:2px}.container{max-width:920px;margin:auto;padding:0 18px}.top{background:linear-gradient(115deg,#203e59,#145f65);color:white;padding:26px 0}.eyebrow{font-size:.75rem;letter-spacing:.1em;color:#cbdde9;font-weight:750}.top h1{font-size:clamp(1.6rem,4vw,2.35rem);line-height:1.25;margin:5px 0}.top p{margin:6px 0;color:#e4eff4}.tabshell{position:sticky;top:0;background:white;border-bottom:1px solid var(--line);z-index:10}.tabs{display:flex;flex-wrap:wrap;gap:7px;padding:9px 0}.tabs button{padding:9px 13px;border-radius:8px;border:1px solid transparent;background:white;color:var(--blue);font-weight:700}.tabs button[aria-selected="true"]{background:#e5f4f0;color:var(--teal);border-color:#b3dacf}.tabs button:disabled{opacity:.65;cursor:not-allowed}.tabs button:hover:not(:disabled){border-color:#b2cdd7}main{padding:20px 0 50px}.section{background:white;border:1px solid var(--line);box-shadow:0 4px 20px #27425c0a;border-radius:13px;padding:clamp(15px,3vw,26px)}.section h2{font-size:1.52rem;line-height:1.3;margin:0 0 9px;color:var(--navy)}.muted{color:var(--muted)}.intro{background:#eef6f3;border:1px solid #c6dfd4;border-radius:10px;padding:12px 16px;margin:15px 0}.intro p{margin:5px 0}.question{border:1px solid #d6e1e8;background:#fcfefe;border-radius:12px;margin:19px 0;padding:clamp(14px,2.3vw,20px)}.qtop{font-weight:700;font-size:.82rem;color:#527080;letter-spacing:.03em}.question h3{font-size:1.09rem;margin:5px 0 14px;color:#18384c}.prompt{margin-bottom:15px}.prompt p{margin:6px 0}.options{display:grid;gap:8px}.opt{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid #d5e1e7;padding:10px 13px;border-radius:8px;cursor:pointer}.opt:has(input:checked){border-color:#248577;background:#f0f8f5}.opt:hover{border-color:#8dafb4}.opt input{flex-shrink:0;margin-top:6px;accent-color:var(--teal)}.opt>span{min-width:0}.opt p{margin:0}.smallbutton,.primary{border-radius:8px;padding:9px 14px;font-weight:700;margin-top:12px}.smallbutton{border:1px solid #b3ccd1;background:#fff;color:#194764}.smallbutton:hover{background:#edf4f5}.primary{border:1px solid var(--teal);background:var(--teal);color:white}.primary:hover{background:#11534b}.primary:disabled{opacity:.5;cursor:not-allowed}.fb{margin:14px 0 1px;background:#eef7f2;border:1px solid #cfe8d9;border-left:4px solid #1b795c;border-radius:8px;padding:14px 16px}.fb.wrong{background:#fff7ed;border-color:#f2d6ba;border-left-color:#ad7424}.fb h4{color:#155f4b;font-size:1rem;margin:0 0 8px}.fb.wrong h4{color:#8c511a}.fb p{margin:7px 0}.explain{margin-top:14px;color:#263e4e}.explain p{margin:9px 0}.explain p strong{font-weight:700}.detail{margin-top:12px;background:#fff;border:1px solid #c5d8df;border-radius:9px;padding:0 12px}.detail summary{color:var(--blue);padding:10px 0;cursor:pointer;font-weight:700}.detail-inner{border-top:1px solid #e0e9ed;padding:10px 0 14px}.detail-inner p{margin:8px 0}.progresshead{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.progress{background:#e6eff0;height:10px;overflow:hidden;border-radius:50px;margin:11px 0 20px}.progress>div{background:#278476;width:0;height:100%;transition:width .2s}.note{font-size:.85rem;color:var(--muted)}.notice{margin:17px 0;border-radius:10px;padding:13px 15px;background:#f3f7fa;border:1px dashed #bccdd5}.done{background:#eaf7f0;border-color:#acdbc8}.taskbox{padding:14px 18px;background:#f1f8f6;border-left:4px solid #2e8570;border-radius:8px;margin:14px 0}.taskbox ol{padding-left:21px}.taskbox li{margin:9px 0}.sample{border:1px solid #cbdde5;border-radius:11px;padding:14px 17px;background:#f7fafc;margin:14px 0}.sample p{margin:6px 0}.checklist{padding-left:21px}.checklist li{margin:6px 0}.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}.metric{border:1px solid #d5e2e7;background:#f8fafc;border-radius:9px;padding:12px 16px}.metric .number{font-size:2rem;font-weight:800;color:#234961;line-height:1.2}.metric .caption{font-size:.84rem;color:#5b6c7a}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;margin-top:15px}th,td{border-bottom:1px solid #dbe5e9;text-align:left;padding:9px 8px}th{background:#edf4f6;color:#284a60}td:nth-child(1){width:55px}td:last-child{font-weight:700}tr:nth-child(even){background:#fafdfe}.right{color:#126747}.wrong-text{color:#98551b}.printtitle{display:none}.hidden{display:none!important}mjx-container[jax="CHTML"][display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%;padding:3px 0 5px;font-size:109%!important}mjx-container:not([display="true"]){font-size:103%!important}.qtop,mjx-container{font-variant-numeric:normal}.footer{font-size:.85rem;margin-top:17px;color:#637988}.top .short{font-size:.9rem}.reset{border:0;background:transparent;text-decoration:underline;color:#657887;padding:7px;margin-top:13px}.results-note{margin:15px 0 6px}.printbtn{margin-top:15px}.print-meta{color:#5c707e;font-size:.88rem}.lockmark{font-size:.95rem}.onlyprint{display:none}
+@media(max-width:600px){.container{padding:0 12px}.tabs{gap:2px}.tabs button{font-size:.87rem;padding:9px 8px}.section{padding:14px}.question{padding:13px}th,td{font-size:.87rem;padding:8px 5px}.metrics{gap:8px}}
+@media print{@page{size:A4;margin:13mm}body{background:white;font-size:11pt}.top,.tabshell,.screenonly,.smallbutton,.primary,.reset,.footer{display:none!important}main{padding:0}.section{box-shadow:none;border:0;padding:0}#view-quiz,#view-task{display:none!important}#view-results{display:block!important}.printtitle{display:block;font-size:19pt;margin:0 0 3mm}.onlyprint{display:block}.metrics{gap:8px;margin:8px 0}.metric{padding:8px 12px}.metric .number{font-size:21pt}.tablewrap{overflow:visible}table{margin-top:7px;font-size:10pt}td,th{padding:6px 7px}tr{break-inside:avoid}.results-note{font-size:9.7pt}.print-meta{font-size:9pt}#view-results>h2{display:none}}
+
+/* Valfrjáls upprifjun — sjálfstæð og án tengsla við skylduverkefni. */
+.review-header{background:#f0f5fb;border:1px solid #cadbec;border-radius:11px;padding:14px 17px;margin:13px 0 19px}
+.review-header p{margin:7px 0}.concept-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:15px 0 22px}
+.concept{background:#f7f9fc;border:1px solid #d6e2eb;border-radius:10px;padding:12px 15px}
+.concept strong{color:#234764}.concept p{margin:6px 0 0}.review-card{background:#fff;border:1px solid #d7e2e9;border-radius:12px;padding:19px;margin:18px 0}
+.review-card h3{font-size:1.12rem;color:#234764;margin:4px 0 10px}.review-sub{color:#607586;font-size:.82rem;font-weight:750;letter-spacing:.035em}
+.review-card p{margin:8px 0}.review-options{display:grid;gap:8px;margin-top:10px}
+.review-option{display:flex;gap:10px;align-items:flex-start;background:#fcfdfe;border:1px solid #d8e4ea;border-radius:8px;padding:10px 12px;cursor:pointer}
+.review-option:has(input:checked){background:#f0f7f5;border-color:#60a497}.review-option input{margin-top:6px;accent-color:#18695d}
+.pair-row{display:grid;grid-template-columns:minmax(130px,1fr) minmax(210px,1.7fr);align-items:center;gap:10px;margin:8px 0;padding:10px 12px;background:#f7fafc;border:1px solid #e0e8ee;border-radius:8px}
+.pair-row select{min-width:0;width:100%;padding:9px 10px;background:white;border-radius:7px;border:1px solid #bdcfd9;color:#213d53;font-size:.96rem}
+.review-number{width:130px;max-width:100%;padding:9px 11px;border-radius:7px;border:1px solid #acc8d1}
+.review-response{background:#eef7f3;border-left:4px solid #24806a;border-radius:7px;padding:12px 15px;margin-top:13px}
+.review-response.incorrect{background:#fff8ed;border-left-color:#b0782f}
+.review-response p{margin:7px 0}.review-response .math-step{margin-top:12px}
+.review-response mjx-container[display="true"],.review-card mjx-container[display="true"]{max-width:100%;overflow-x:auto;overflow-y:hidden;padding:4px 0}
+.order-row{display:flex;gap:12px;justify-content:space-between;align-items:center;padding:10px 13px;margin:9px 0;background:#f7fafc;border:1px solid #dce7ec;border-radius:8px}
+.order-controls{white-space:nowrap}.order-controls button{padding:4px 11px;border-radius:6px;border:1px solid #b8ccd5;background:white;color:#1d5168;margin-left:4px}
+.review-progress{border:1px solid #cfe1e8;background:#f9fcfd;padding:10px 13px;border-radius:8px;font-size:.94rem;color:#35596d}
+.review-help{color:#637687;font-size:.89rem}.review-action{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+#view-review .primary,#view-review .smallbutton{margin-top:12px}
+@media(max-width:600px){.concept-grid{grid-template-columns:1fr}.pair-row{grid-template-columns:1fr}.review-card{padding:13px}.order-row{gap:6px}.order-controls button{margin-left:2px;padding:4px 8px}}
+@media print{#view-review{display:none!important}}
+</style>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" onload="window.mathJaxLoaded?.()"></script></head><body>
+<header class="top"><div class="container"><div class="eyebrow">STÆR2AF05 · Algebra, föll og mengi</div><h1>Vefbók – Vika 1</h1><p>19.–23. október 2026 · Kannaðu skilning þinn áður en þú leysir skiladæmi vikunnar.</p></div></header>
+<nav class="tabshell screenonly" aria-label="Hlutar vefbókar"><div class="container tabs"><button type="button" data-tab="quiz" aria-selected="true">Prófaðu skilninginn</button><button type="button" data-tab="task" id="taskTab" aria-selected="false" disabled>Skiladæmi vikunnar <span id="lock" aria-hidden="true" class="lockmark">· læst</span></button><button type="button" data-tab="results" aria-selected="false">Niðurstöður</button><button type="button" data-tab="review" aria-selected="false">Upprifjun í stærðfræði · valfrjálst</button></div></nav>
+<main class="container">
+ <section id="view-quiz" class="section">
+  <h2>Prófaðu skilninginn</h2>
+  <p>Þegar þú hefur unnið æfingadæmi vikunnar í kennslubókinni skaltu prófa skilning þinn hér. Þú færð sjálfvirka endurgjöf og getur lært af mistökum áður en þú byrjar á skiladæminu.</p>
+  <div class="intro"><p><strong>Svona virkar þetta:</strong> Veldu svar og smelltu á <strong>Athuga svar</strong>. Lestu endurgjöfina og prófaðu aftur ef þú vilt.</p><p>Skiladæmið birtist þegar þú hefur svarað <strong>öllum spurningunum</strong>. Þú þarft ekki að svara öllu rétt í fyrstu tilraun.</p></div>
+  <div class="progresshead"><strong id="progressLabel">0 af 8 spurningum lokið</strong><span class="note">Fyrstu svörin eru skráð í niðurstöðum.</span></div>
+  <div class="progress" aria-hidden="true"><div id="progressFill"></div></div>
+  <div id="questions"></div>
+  <div id="quizLocked" class="notice"><strong>Skiladæmið er enn læst.</strong> Svaraðu öllum spurningunum og lestu endurgjöfina til að opna það.</div>
+  <div id="quizReady" class="notice done hidden"><strong>Þú hefur lokið við „Prófaðu skilninginn“.</strong><p>Skiladæmi vikunnar er nú aðgengilegt.</p><button type="button" class="primary" id="goTask">Opna skiladæmi vikunnar</button></div>
+ </section>
+ <section id="view-task" class="section hidden">
+  <h2>Skiladæmi vikunnar</h2><p class="muted">Tvær leiðir að sömu lausn</p>
+  <p>Leystu verkefnið sjálfstætt á blað. Sýndu skýr reikniskref og rökstyddu niðurstöðuna.</p>
+  <div class="taskbox"><strong>Gefin er jafnan:</strong>\[\frac{x+2}{x}-\frac23=\frac12\]
+  <ol type="a"><li>Leystu jöfnuna með því að <strong>sameina brotin vinstra megin með samnefnara</strong> og margfalda síðan í kross.</li>
+  <li>Leystu sömu jöfnu með því að <strong>margfalda alla liði hennar með \(6x\)</strong>.</li>
+  <li>Tilgreindu hvaða gildi \(x\) má ekki taka og útskýrðu í 1–2 setningum hvor lausnaleiðin þér finnst einfaldari og hvers vegna.</li></ol></div>
+  <h3>Svona lítur vönduð framsetning út</h3><p>Þetta er <strong>annað og einfaldara dæmi</strong> sem sýnir hvernig skrifa má skýra lausn.</p>
+  <div class="sample"><strong>Sýnidæmi: Leystu \(3(x-2)=x+8\).</strong>\[\begin{aligned}3(x-2)&=x+8\\[6pt]3x-6&=x+8\\[6pt]2x&=14\\[6pt]x&=7\end{aligned}\]<p><strong>Sannprófun:</strong></p><p>Vinstri hlið: \(3(7-2)=15\)</p><p>Hægri hlið: \(7+8=15\)</p><p>Báðar hliðar eru jafnar; \(x=7\) er lausn.</p></div>
+  <h3>Reglur um vandaða framsetningu</h3><ul class="checklist"><li>Skrifaðu dæmið upp og sýndu öll mikilvæg reikniskref, eitt skref í einu.</li><li>Notaðu jafnaðarmerki rétt, gættu að svigum og formerkjum.</li><li>Tilgreindu nefnaraskilyrði þegar þau eiga við.</li><li>Svaraðu öllum undirliðum og rökstyddu mat þitt á aðferðunum.</li></ul>
+  <div class="intro"><strong>Skil:</strong> Taktu skýra ljósmynd eða skannaðu lausnina og skilaðu í Canvas með öðrum vikuskilum.</div>
+ </section>
+ <section id="view-results" class="section hidden">
+  <h1 class="printtitle">Niðurstöður – Vika 1</h1><h2>Niðurstöður</h2>
+  <p class="print-meta">STÆR2AF05 · Vefbók – Vika 1 · Prófaðu skilninginn</p>
+  <p class="results-note">Yfirlitið sýnir hvort <strong>fyrsta svar við hverri spurningu</strong> var rétt eða rangt. Það er ekki einkunn og breytist ekki þótt þú reynir aftur.</p>
+  <div class="metrics"><div class="metric"><div class="number" id="correctCount">0</div><div class="caption">Rétt í fyrstu tilraun</div></div><div class="metric"><div class="number" id="wrongCount">0</div><div class="caption">Rangt í fyrstu tilraun</div></div></div>
+  <div class="tablewrap"><table><thead><tr><th>Nr.</th><th>Viðfangsefni</th><th>Fyrsta tilraun</th></tr></thead><tbody id="resultRows"></tbody></table></div>
+  <p class="print-meta" id="finishNote"></p>
+  <div class="screenonly"><button id="printBtn" class="primary printbtn" disabled type="button">Prenta niðurstöður / Vista sem PDF</button><p class="note">Prentun er í boði þegar öllum spurningum hefur verið svarað. Veldu <strong>Vista sem PDF</strong> í prentglugganum og skilaðu skjalinu í Canvas.</p><button id="resetBtn" class="reset" type="button">Núllstilla svör á þessu tæki</button></div>
+ </section>
+
+  <section id="view-review" class="section hidden">
+    <h2>Upprifjun í stærðfræði</h2>
+    <p class="muted">Valfrjálst stuðningsefni um röð reikniaðgerða, stæður, sviga og líka liði. Hér eru hvorki brot né veldareglur.</p>
+    <div class="review-header"><p><strong>Þetta er æfing, ekki próf.</strong> Þú mátt vinna verkefnin í hvaða röð sem er, prófa aftur og skoða skýringar.</p><p>Upprifjunin hefur <strong>engin áhrif</strong> á opnun skiladæmis vikunnar, árangur í „Prófaðu skilninginn“ eða PDF-niðurstöðurnar sem þú skilar í Canvas.</p></div>
+    <h3>Hugtök sem gott er að kunna</h3>
+    <p>Þegar þú þekkir merkingu orðanna er auðveldara að átta sig á því hvað á að gera í dæmi.</p>
+    <div class="concept-grid">
+       <div class="concept"><strong>Breyta</strong><p>Tákn, oft bókstafur eins og \(x\), sem stendur fyrir tölu. Gildi breytunnar getur verið óþekkt eða breyst.</p></div>
+       <div class="concept"><strong>Stæða</strong><p>Tölur og/eða breytur sem eru tengdar reikniaðgerðum, til dæmis \(3x+2\). Stæða er ekki jafna; þar er ekki verið að segja að tvær hliðar séu jafnar.</p></div>
+       <div class="concept"><strong>Jafna</strong><p>Tvær stæður sem jafnaðarmerki tengir, til dæmis \(3x+2=11\). Við getum leyst jöfnu en <em>einfaldað</em> stæðu.</p></div>
+       <div class="concept"><strong>Liður</strong><p>Hluti stæðu sem er aðgreindur með plús eða mínus. Í \(4x-3+2x\) eru liðirnir \(4x\), \(-3\) og \(2x\).</p></div>
+       <div class="concept"><strong>Stuðull</strong><p>Tala sem margfaldar breytu. Í \(-5x\) er stuðullinn \(-5\). Í \(x\) er stuðullinn \(1\).</p></div>
+       <div class="concept"><strong>Líkir liðir</strong><p>Liðir með nákvæmlega sömu breytur, t.d. \(3x\) og \(-5x\). Stuðla þeirra má leggja saman. Fastaliðir eru líka líkir hver öðrum.</p></div>
+    </div>
+    <div class="review-header"><strong>Röð reikniaðgerða</strong><p>Byrjaðu á <strong>svigum</strong>, síðan kemur <strong>margföldun og deiling</strong>, og að lokum <strong>samlagning og frádráttur</strong>. Aðgerðir sem hafa sama forgang eru framkvæmdar frá vinstri til hægri.</p></div>
+    <div class="review-progress" id="reviewProgress" aria-live="polite">Valfrjáls verkefni · engin svör enn.</div>
+    <div id="reviewActivities"></div>
+    <p class="review-help">Svör upprifjunarinnar geymast aðeins í þessum vafra, ef staðbundin vistun er leyfð. Upprifjunin er ekki hluti af útprentuðum niðurstöðum.</p>
+    <button type="button" id="reviewReset" class="reset">Byrja upprifjun upp á nýtt</button>
+  </section>
+ <div class="footer screenonly">Svörin vistast aðeins í vafranum á þessu tæki, ekki á netþjóni. Skilaðu PDF-yfirlitinu í Canvas.</div>
+ </main>
+<script type="application/json" id="questionsData">[{"id": "svigar", "title": "Svigareglur", "prompt": "\\(1-3(x-4)\\) — hvaða stæða er jafngild?", "options": ["\\(-3x-11\\)", "\\(13-3x\\)", "\\(-3x-3\\)", "\\(-2x+8\\)"], "correct": 1, "feedback": ["Formerkið breyttist rangt. \\((-3)\\cdot(-4)=+12\\), ekki \\(-12\\).", "Neikvæð tala er margfölduð við \u003cstrong\u003ebáða liðina\u003c/strong\u003e innan svigans.", "Margfalda þarf \\(-3\\) með \\(-4\\), ekki draga \\(4\\) frá.", "Ekki má reikna \\(1-3\\) áður en margföldunin inn í svigann er framkvæmd."], "explanation": "\\[\\begin{aligned}1-3(x-4)\u0026=1-3x+12\\\\[4pt]\u0026=13-3x\\end{aligned}\\]", "more": ""}, {"id": "sannprof", "title": "Sannprófun án jöfnulausnar", "prompt": "Er \\(x=1\\) lausn jöfnunnar \\(2(x+3)=3x+5\\)?", "options": ["Já", "Nei"], "correct": 0, "feedback": ["Það nægir að \u003cstrong\u003esetja \\(x=1\\) inn í báðar hliðar\u003c/strong\u003e og bera niðurstöðurnar saman. Ekki þarf að einangra \\(x\\).", "Til að kanna þetta þarftu ekki að leysa jöfnuna. Settu \\(x=1\\) inn í vinstri og hægri hlið hvoru í sínu lagi."], "explanation": "\u003cp\u003e\u003cstrong\u003eVinstri hlið:\u003c/strong\u003e\u003c/p\u003e\\[\\begin{aligned}2(1+3)\u0026=2\\cdot4\\\\[4pt]\u0026=8\\end{aligned}\\]\u003cp\u003e\u003cstrong\u003eHægri hlið:\u003c/strong\u003e\u003c/p\u003e\\[\\begin{aligned}3\\cdot1+5\u0026=3+5\\\\[4pt]\u0026=8\\end{aligned}\\]\u003cp\u003eBáðar hliðar eru \\(8\\), þannig að \\(x=1\\) er lausn.\u003c/p\u003e", "more": ""}, {"id": "skilyrdi", "title": "Nefnaraskilyrði", "prompt": "Fyrir hvaða gildi á \\(x\\) er jafnan \\(\\frac{5}{x-2}+1=\\frac{x}{x+3}\\) óskilgreind?", "options": ["Aðeins \\(x=2\\)", "Aðeins \\(x=-3\\)", "Bæði \\(x=2\\) og \\(x=-3\\)", "\\(x=0\\)"], "correct": 2, "feedback": ["Þú athugaðir fyrri nefnarann. Skoðaðu líka hvenær \\(x+3=0\\).", "Þú athugaðir seinni nefnarann. Skoðaðu líka hvenær \\(x-2=0\\).", "Þú athugaðir \u003cstrong\u003ebáða nefnarana\u003c/strong\u003e. Þeir mega hvorugur verða núll.", "Við \\(x=0\\) eru nefnararnir \\(-2\\) og \\(3\\), svo þar verður ekki deilt með núlli."], "explanation": "\u003cp\u003eNefnararnir eru \\(x-2\\) og \\(x+3\\). Því þarf\u003c/p\u003e\\[\\begin{aligned}x-2\u0026\\ne0\u0026\u0026\\Rightarrow x\\ne2\\\\[5pt]x+3\u0026\\ne0\u0026\u0026\\Rightarrow x\\ne-3\\end{aligned}\\]", "more": ""}, {"id": "sameining", "title": "Sameina brot með samnefnara", "prompt": "Hvernig má skrifa \\(\\frac{x+1}{3}-\\frac{x-1}{2}\\) sem \u003cstrong\u003eeitt einfaldað brot\u003c/strong\u003e?", "options": ["\\(\\frac{5-x}{6}\\)", "\\(\\frac{-x-1}{6}\\)", "\\(\\frac{5-x}{1}\\)", "\\(5-x\\)"], "correct": 0, "feedback": ["Sameiginlegi nefnarinn er \\(6\\), og mínusinn hefur áhrif á \u003cstrong\u003eallan seinni teljarann\u003c/strong\u003e.", "Athugaðu formerkið: \\(-3(x-1)=-3x+3\\), ekki \\(-3x-3\\).", "Þegar brot eru sameinuð þarf að halda réttum samnefnara. Ekki draga nefnarana frá hvor öðrum.", "Nefnarinn \\(6\\) má ekki hverfa þegar aðeins er verið að einfalda \u003cstrong\u003estæðu\u003c/strong\u003e."], "explanation": "", "more": "\u003cp\u003eFyrst lengjum við brotin í samnefnarann \\(6\\). Síðan leysum við úr svigum:\u003c/p\u003e\\[\\begin{aligned}\\frac{x+1}{3}-\\frac{x-1}{2}\u0026=\\frac{2(x+1)-3(x-1)}6\\\\[8pt]\u0026=\\frac{2x+2-3x+3}6\\\\[8pt]\u0026=\\frac{5-x}6\\end{aligned}\\]"}, {"id": "allir-lidir", "title": "Margfalda alla liði jöfnu", "prompt": "Jafnan er \\(\\frac{x}{2}+3=\\frac{x+4}{5}\\). Hún er margfölduð með \\(10\\). Hvaða jafna fæst?", "options": ["\\(5x+3=2x+8\\)", "\\(5x+30=2x+8\\)", "\\(5x+30=2x+4\\)", "\\(5x+3=2x+4\\)"], "correct": 1, "feedback": ["Ekki gleyma heilutöluliðnum \\(3\\): hann verður \\(10\\cdot3=30\\).", "\u003cstrong\u003eHver einasti liður\u003c/strong\u003e er margfaldaður með \\(10\\), einnig talan \\(3\\).", "Hægra megin fæst \\(2(x+4)\\). Dreifðu \\(2\\) á \u003cstrong\u003ebáða liði\u003c/strong\u003e í sviganum.", "Hér gleymdist að margfalda bæði \\(3\\) með \\(10\\) og \\(4\\) með \\(2\\)."], "explanation": "", "more": "\u003cp\u003eMargfaldaðu alla liði jöfnunnar með \\(10\\):\u003c/p\u003e\\[\\begin{aligned}10\\cdot\\frac x2+10\\cdot3\u0026=10\\cdot\\frac{x+4}{5}\\\\[7pt]5x+30\u0026=2(x+4)\\\\[7pt]5x+30\u0026=2x+8\\end{aligned}\\]"}, {"id": "kross", "title": "Hvenær má margfalda í kross?", "prompt": "Í hvaða tilviki má \u003cstrong\u003emargfalda beint í kross\u003c/strong\u003e samkvæmt reglunni fyrir tvö jöfn brot?", "options": ["\\(\\frac{x+1}2+\\frac x3=4\\)", "\\(\\frac{x+1}{x-2}=\\frac34\\)", "\\(\\frac{x+1}2\\cdot\\frac x3=\\frac56\\)", "\\(\\frac{x+1}2-\\frac x3\\)"], "correct": 1, "feedback": ["Vinstra megin eru tvö brot sem eru lögð saman. Þú þarft fyrst að sameina þau með samnefnara eða margfalda alla liði með samnefnara.", "Hér stendur eitt brot hvoru megin jafnaðarmerkisins. Mundu að \\(x\\ne2\\).", "Vinstra megin er \u003cstrong\u003emargföldun brota\u003c/strong\u003e, ekki eitt brot sem er þegar jafnt öðru broti.", "Þetta er \u003cstrong\u003estæða\u003c/strong\u003e, ekki jafna. Ekki er hægt að margfalda tvær hliðar jöfnu þegar ekkert jafnaðarmerki er til staðar."], "explanation": "\u003cp\u003eÍ valkosti B má rita:\u003c/p\u003e\\[4(x+1)=3(x-2),\\qquad x\\ne2.\\]", "more": ""}, {"id": "villugreining", "title": "Finndu rangt reikniskref", "prompt": "\u003cp\u003eNemandi margfaldar alla liði jöfnunnar\u003c/p\u003e\\[\\frac{x+4}{3}-\\frac{x-1}{2}=1\\]\u003cp\u003emeð \\(6\\) og fær:\u003c/p\u003e\\[2(x+4)-(x-1)=6\\]\u003cp\u003e\u003cstrong\u003eHver er villan?\u003c/strong\u003e\u003c/p\u003e", "options": ["Stuðullinn \\(3\\) vantar við seinni svigann.", "Fyrri sviginn á að vera margfaldaður með \\(6\\), ekki \\(2\\).", "Hægri hliðin á að vera \\(1\\), ekki \\(6\\).", "Það er ekki leyfilegt að margfalda alla liði með \\(6\\)."], "correct": 0, "feedback": ["Við margföldun með \\(6\\) verður \\(6\\cdot\\frac{x-1}{2}=3(x-1)\\).", "Fyrra brotið verður \\(6\\cdot\\frac{x+4}{3}=2(x+4)\\). Þar liggur villan ekki.", "Einnig þarf að margfalda hægri hlið með \\(6\\), svo þar á að standa \\(6\\).", "Það er heimilt að margfalda báðar hliðar með sömu tölu sem er ekki núll, hér \\(6\\)."], "explanation": "\u003cp\u003eRétta næsta skrefið er:\u003c/p\u003e\\[2(x+4)-3(x-1)=6.\\]\u003cp\u003eAthugaðu að mínusinn fyrir framan seinni liðinn helst.\u003c/p\u003e", "more": ""}, {"id": "adferdir", "title": "Berðu saman tvær aðferðir", "prompt": "\u003cp\u003eTvær leiðir eru notaðar við jöfnuna:\u003c/p\u003e\\[\\frac{x+1}{4}+\\frac12=\\frac{x-2}{3}\\]\u003cp\u003e\u003cstrong\u003eLeið A:\u003c/strong\u003e Sameina brotin vinstra megin með samnefnara:\u003c/p\u003e\\[\\frac{x+3}{4}=\\frac{x-2}{3}\\]\u003cp\u003e\u003cstrong\u003eLeið B:\u003c/strong\u003e Margfalda alla liði strax með \\(12\\):\u003c/p\u003e\\[3(x+1)+6=4(x-2)\\]\u003cp\u003e\u003cstrong\u003eHvaða fullyrðing er rétt?\u003c/strong\u003e\u003c/p\u003e", "options": ["Báðar leiðir eru gildar og gefa sömu jöfnu eftir einföldun.", "Leið A er röng því ekki má leggja saman brot með ólíkum nefnurum.", "Leið B er röng því brotið \\(\\frac12\\) verður að haldast óbreytt.", "Leiðirnar gefa ólíkar lausnir þar sem reikniskrefin eru ólík."], "correct": 0, "feedback": ["Báðar aðferðir varðveita jafngildi jöfnunnar, þótt upphafsskrefin séu ólík.", "Það má sameina brot með því að breyta þeim fyrst í brot með sama nefnara.", "Þegar öll jafnan er margfölduð með \\(12\\) verður \\(12\\cdot\\frac12=6\\).", "Ólík gild reikniskref geta leitt til sömu lausnar. Prófaðu að einfalda báðar leiðir."], "explanation": "\u003cp\u003eVið einföldun gefa báðar leiðir sömu jöfnuna:\u003c/p\u003e\\[3x+9=4x-8.\\]", "more": ""}]</script>
 <script>
-window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};
-</script>
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" onload="window.mathJaxOnLoad?.()"></script>
-</head>
-<body>
-<header class="masthead"><div class="wrap"><div class="eyebrow">STÆR2AF05 · Algebra, föll og mengi</div><h1>Prófaðu skilninginn <span style="font-weight:400;opacity:.85">– Vika 1</span></h1><p>19.–23. október 2026 · Stuttar æfingar sem hjálpa þér að átta þig á því sem þú kannt.</p><p><span class="pill">Engin einkunn fyrir forþekkingarkönnun</span></p></div></header>
-<nav class="tabscroll no-print" aria-label="Veldu dag eða yfirlit"><div class="wrap tabs" role="tablist" aria-label="Hlutar vinnubókar"><button type="button" role="tab" aria-selected="true" data-tab="diag">Mánudagur <span class="smallcount" id="diagCount">0/4</span></button><button type="button" role="tab" aria-selected="false" data-tab="tri">Þriðjudagur <span class="smallcount" id="tab_tri">0/3</span></button><button type="button" role="tab" aria-selected="false" data-tab="mid">Miðvikudagur <span class="smallcount" id="tab_mid">0/3</span></button><button type="button" role="tab" aria-selected="false" data-tab="fim">Fimmtudagur <span class="smallcount" id="tab_fim">0/3</span></button><button type="button" role="tab" aria-selected="false" data-tab="fos">Föstudagur <span class="smallcount" id="tab_fos">0/3</span></button><button type="button" role="tab" aria-selected="false" data-tab="overview">Framvinduyfirlit <span class="smallcount" id="weekCount">0/12</span></button></div></nav>
-<main class="wrap">
-<div id="storagewarning" class="warning hidden"><strong>Vistun óvirk.</strong> Þessi vafri leyfir ekki staðbundna vistun. Opnaðu skrána í venjulegum vafra með leyfðri vistun og forðastu einkaglugga.</div>
-<noscript>Vinnubókin krefst þess að JavaScript sé virkt í vafranum. Opnaðu HTML-skrána beint í studdum vafra.</noscript>
-
-<section data-section="diag" id="section_diag" class="panel"><div class="sectionheader"><div><span class="tag-date">Mánudagur 19. október</span><h2>Stutt forþekkingarkönnun</h2><p class="lead">4 verkefni · um 8–10 mínútur · engin einkunn. Þetta hjálpar þér og kennaranum að sjá hvað þarf að rifja upp.</p></div><span class="pill">Byrja hér</span></div><div class="callout"><strong>Áður en þú byrjar:</strong> Reyndu að svara án aðstoðar. Þú getur breytt svörunum áður en þú skilar. Rétt svör og útskýringar birtast þegar þú hefur svarað öllum fjórum verkefnunum og ýtt á <strong>Skila könnun</strong>.</div><div class="progressbar" aria-hidden="true"><div id="diagnostic-progressbar" style="width:0"></div></div><p id="diagnostic-progress" class="mini" aria-live="polite"></p><div id="diagnostic-questions"></div><div class="row no-print"><button id="diagnostic-submit" class="btn" type="button" disabled>Skila könnun og sjá niðurstöðu</button><div id="diagnostic-result" class="hidden"><div class="callout"><strong>Forþekkingarkönnun lokið.</strong> Rétt svör í fyrstu skilum: <strong id="diagnostic-score">–</strong>. Þetta er greining, ekki einkunn. Skoðaðu útskýringarnar hér að ofan.</div><button class="btn" type="button" id="goOverview">Skoða framvinduyfirlit</button></div></div><p class="note">Niðurstöðurnar vistast aðeins í þessum vafra. Kennari fær þær ekki sjálfkrafa.</p></section>
-
-<section data-section="tri" class="panel hidden" id="section_tri"><div class="sectionheader"><div><span class="tag-date">Þriðjudagur 20. október</span><h2>Fyrsta stigs jöfnur og svigareglur</h2><p class="lead">Verkefnin hér þjálfa skilning og villugreiningu til viðbótar við bókaræfingar. Þú mátt vinna þau þegar þér hentar í vikunni.</p></div><span class="pill">3 verkefni</span></div><div class="callout">Þú færð endurgjöf þegar þú velur <strong>Athuga svar</strong>. Ef þú svarar aftur er fyrsta tilraunin samt varðveitt í yfirlitinu.</div><div id="questions_tri"></div><div class="row no-print" style="margin-top:18px"><button class="btn" type="button" data-tab="overview">Skoða framvinduyfirlit</button></div></section>
-
-<section data-section="mid" class="panel hidden" id="section_mid"><div class="sectionheader"><div><span class="tag-date">Miðvikudagur 21. október</span><h2>Brotajöfnur og nefnaraskilyrði</h2><p class="lead">Verkefnin hér þjálfa skilning og villugreiningu til viðbótar við bókaræfingar. Þú mátt vinna þau þegar þér hentar í vikunni.</p></div><span class="pill">3 verkefni</span></div><div class="callout">Þú færð endurgjöf þegar þú velur <strong>Athuga svar</strong>. Ef þú svarar aftur er fyrsta tilraunin samt varðveitt í yfirlitinu.</div><div id="questions_mid"></div><div class="row no-print" style="margin-top:18px"><button class="btn" type="button" data-tab="overview">Skoða framvinduyfirlit</button></div></section>
-
-<section data-section="fim" class="panel hidden" id="section_fim"><div class="sectionheader"><div><span class="tag-date">Fimmtudagur 22. október</span><h2>Að margfalda í kross og velja aðferð</h2><p class="lead">Verkefnin hér þjálfa skilning og villugreiningu til viðbótar við bókaræfingar. Þú mátt vinna þau þegar þér hentar í vikunni.</p></div><span class="pill">3 verkefni</span></div><div class="callout">Þú færð endurgjöf þegar þú velur <strong>Athuga svar</strong>. Ef þú svarar aftur er fyrsta tilraunin samt varðveitt í yfirlitinu.</div><div id="questions_fim"></div><div class="row no-print" style="margin-top:18px"><button class="btn" type="button" data-tab="overview">Skoða framvinduyfirlit</button></div></section>
-
-<section data-section="fos" class="panel hidden" id="section_fos"><div class="sectionheader"><div><span class="tag-date">Föstudagur 23. október</span><h2>Formúlueinangrun</h2><p class="lead">Verkefnin hér þjálfa skilning og villugreiningu til viðbótar við bókaræfingar. Þú mátt vinna þau þegar þér hentar í vikunni.</p></div><span class="pill">3 verkefni</span></div><div class="callout">Þú færð endurgjöf þegar þú velur <strong>Athuga svar</strong>. Ef þú svarar aftur er fyrsta tilraunin samt varðveitt í yfirlitinu.</div><div id="questions_fos"></div><div class="row no-print" style="margin-top:18px"><button class="btn" type="button" data-tab="overview">Skoða framvinduyfirlit</button></div></section>
-
-<section id="overview" data-section="overview" class="panel hidden"><div class="sectionheader"><div><span class="tag-date">Vika 1 · 19.–23. október 2026</span><h2>Framvinduyfirlit</h2><p class="lead">Yfirlitið sýnir fyrstu tilraunir og hversu mörgum verkefnum þú hefur svarað. <strong>Þetta er ekki einkunn.</strong></p></div><span class="pill">Til að taka skjáskot</span></div><div class="metrics"><div class="metric"><div class="num" id="s_diag">–</div><div class="label">Forþekking · rétt í fyrstu skilum (af 4)</div></div><div class="metric"><div class="num" id="s_done">0/12</div><div class="label">Verkefni viku 1 · svarað (af 12)</div></div><div class="metric"><div class="num" id="s_correct">0/0</div><div class="label">Rétt í fyrstu tilraun (af svöruðum)</div></div></div><div class="progressbar" aria-label="Hlutfall verkefna sem hefur verið svarað"><div id="overallProgressbar" style="width:0"></div></div><div class="screenbox"><strong>Taktu skjáskot af þessum hluta þegar þú skilar vikuskilum.</strong><div style="overflow:auto"><table class="summarytable"><thead><tr><th>Dagur og efni</th><th>Svarað</th><th>Rétt í fyrstu</th></tr></thead><tbody id="summaryrows"></tbody></table></div><p class="mini">Síðasta vistun: <span id="savedAt">–</span></p><p class="mini" id="localInfo">Framvinda vistast aðeins á þessu tæki.</p></div><div class="row no-print" style="margin-top:15px"><button class="btn-secondary" id="goBack" type="button">Aftur í mánudag</button><button class="btn-secondary" id="printSummary" type="button">Prenta yfirlit</button><button class="btn-danger" id="clearAll" type="button">Hreinsa alla framvindu</button></div></section>
-</main>
-<div id="toast" class="hidden" role="status" aria-live="polite"></div>
-
-<script id="question-data" type="application/json">{"diag":[{"source_id":"M1","title":"Formerkjareglur og svigar","prompt":"\u003cp>Hvert af eftirfarandi er jafngilt stæðunni \\(-2(3 - x)\\)?\u003c/p>","options":["\\(-6 - 2x\\)","\\(-6 + 2x\\)","\\(6 - 2x\\)","\\(6 + 2x\\)"],"correct":1,"explanation":"\u003cul>\n\u003cli>Rétt! Þegar neikvæðri tölu er dreift inn í sviga margfaldast hún við hvern lið: \\((-2) \\cdot 3 = -6\\) og \\((-2) \\cdot (-x) = +2x\\).\u003c/li>\n\u003cli>\u003cem>Algeng villa (A):\u003c/em> Varastu að gleyma því að \\(-2 \\cdot (-x) = +2x\\). Mínus sinnum mínus gefur plús!\u003c/li>\n\u003c/ul>","id":"mo1"},{"source_id":"M2","title":"Samnefnari og brotareikningur","prompt":"\u003cp>Hver er minnsti samnefnari brotanna í stæðunni \\(\\frac{3}{4} - \\frac{1}{6}\\) og hvert er einfaldað gildi hennar?\u003c/p>","options":["Samnefnari \\(24\\), gildi \\(\\frac{14}{24}\\)","Samnefnari \\(12\\), gildi \\(\\frac{7}{12}\\)","Samnefnari \\(12\\), gildi \\(\\frac{2}{2}\\)","Samnefnari \\(10\\), gildi \\(\\frac{2}{2}\\)"],"correct":1,"explanation":"\u003cul>\n\u003cli>Rétt! Minnsta talan sem bæði \\(4\\) og \\(6\\) ganga upp í er \\(12\\). Lenging gefur \\(\\frac{9}{12} - \\frac{2}{12} = \\frac{7}{12}\\).\u003c/li>\n\u003cli>\u003cem>Rangt svar (A):\u003c/em> \\(24\\) er gildur samnefnari, en \\(12\\) er \u003cem>minnsti\u003c/em> samnefnarinn. Betra er að nota \\(12\\) til að halda tölunum einföldum.\u003c/li>\n\u003c/ul>","id":"mo2","moreExplanation":"\u003cp>\u003cstrong>1. Finndu sameiginlegt margfeldi.\u003c/strong> Margfeldi af \\(4\\) eru \\(4,8,12,16,\\ldots\\), en margfeldi af \\(6\\) eru \\(6,12,18,24,\\ldots\\). Fyrsta talan sem kemur fyrir á báðum listum er \\(12\\).\u003c/p>\u003cp>\u003cstrong>2. Lengdu brotin.\u003c/strong> \\(\\frac34=\\frac9{12}\\) og \\(\\frac16=\\frac2{12}\\). Þá fæst \\(\\frac9{12}-\\frac2{12}=\\frac7{12}\\).\u003c/p>\u003cp>Þú \u003cem>mátt\u003c/em> nota \\(24\\) sem samnefnara, en \\(12\\) er minnsti samnefnarinn og gerir reikninginn styttri.\u003c/p>"},{"source_id":"M3","title":"Einföld jafna og einangrun","prompt":"\u003cp>Leystu jöfnuna \\(4x - 7 = 13\\) með jafngildum skrefum. Hvert er gildi \\(x\\)?\u003c/p>","options":["\\(x = 1.5\\)","\\(x = 5\\)","\\(x = 2.5\\)","\\(x = 80\\)"],"correct":1,"explanation":"\u003cul>\n\u003cli>Rétt! Bætum \\(7\\) við báðar hliðar: \\(4x = 20\\). Deilum með \\(4\\): \\(x = 5\\).\u003c/li>\n\u003c/ul>","id":"mo3"},{"source_id":"M4","title":"Breytan á báðum hliðum","prompt":"\u003cp>Leystu jöfnuna \\(5x + 3 = 2x + 12\\). Hvert er gildi \\(x\\)?\u003c/p>","options":["\\(x = \\frac{15}{7}\\)","\\(x = 3\\)","\\(x = \\frac{9}{7}\\)","\\(x = 5\\)"],"correct":1,"explanation":"\u003cul>\n\u003cli>Rétt! Drögum \\(2x\\) frá báðum hliðum: \\(3x + 3 = 12\\). Drögum \\(3\\) frá: \\(3x = 9 \\implies x = 3\\).\u003c/li>\n\u003c/ul>","id":"mo4"}],"days":{"tri":{"date":"Þriðjudagur 20. október","name":"Fyrsta stigs jöfnur og svigareglur","questions":[{"source_id":"Þ1","title":"Villugreining – Neikvæðum stuðli dreift inn í sviga","prompt":"\u003cp>Nemandi leysti jöfnuna \\(x - 3(2 + x) = 9\\) á eftirfarandi hátt:\u003cbr>\n\\[\\text{Lína 1: } x - 6 + 3x = 9\\]\u003cbr>\n\\[\\text{Lína 2: } 4x - 6 = 9\\]\u003cbr>\n\\[\\text{Lína 3: } 4x = 15\\]\u003cbr>\n\\[\\text{Lína 4: } x = \\frac{15}{4}\\]\u003c/p>\n\u003cp>Í hvaða línu verður fyrsta stærðfræðilega villan og hver er rétt lausn?\u003c/p>","options":["Villa í línu 2; rétt svar er \\(x = \\frac{3}{4}\\)","Villa í línu 1; rétt svar er \\(x = -\\frac{15}{2}\\)","Villa í línu 3; rétt svar er \\(x = 3\\)","Lausnin er alveg rétt"],"correct":1,"explanation":"\u003cul>\n\u003cli>Rétt greint! Í línu 1 var neikvæða stuðlinum \\(-3\\) dreift rangt: \\(-3 \\cdot x = -3x\\), en nemandinn skrifaði \\(+3x\\).\u003c/li>\n\u003cli>Rétt úrvinnsla: \\(x - 6 - 3x = 9 \\implies -2x - 6 = 9 \\implies -2x = 15 \\implies x = -\\frac{15}{2}\\).\u003c/li>\n\u003c/ul>","id":"tri1","moreExplanation":"\u003cp>Þegar stuðull er fyrir framan sviga verður að margfalda \u003cstrong>hvern lið\u003c/strong> innan svigans með honum:\u003c/p>\u003cp>\\[-3(2+x)=(-3)\\cdot2+(-3)\\cdot x=-6-3x.\\]\u003c/p>\u003cp>Rétt byrjun er því \\(x-6-3x=9\\). Það gefur \\(-2x=15\\) og \\(x=-\\frac{15}{2}\\).\u003c/p>"},{"source_id":"Þ2","title":"Greining á lausnafjölda (Sjálfsögð jafna)","prompt":"\u003cp>Gefin er jafnan \\(2(x + 2) + x - 2 = 3x + 2\\). Hversu margar lausnir hefur jafnan?\u003c/p>","options":["Nákvæmlega eina lausn, \\(x = 0\\)","Enga lausn (lausnamengið er tómt)","Óendanlega margar lausnir (\\(x \\in \\mathbb{R}\\))","Nákvæmlega tvær lausnir, \\(x = 2\\) og \\(x = -2\\)"],"correct":2,"explanation":"\u003cul>\n\u003cli>Glæsilegt! Þegar leyst er úr svigum á vinstri hlið fæst: \\(2x + 4 + x - 2 = 3x + 2 \\implies 3x + 2 = 3x + 2\\).\u003c/li>\n\u003cli>Þegar \\(3x\\) er dregið frá báðum hliðum stendur eftir \\(2 = 2\\) (eða \\(0x = 0\\)). Þetta er jafna sem gildir fyrir \u003cem>öll\u003c/em> gildi á \\(x\\).\u003c/li>\n\u003c/ul>","id":"tri2","moreExplanation":"\u003cp>Eftir einföldun verður jafnan \\(3x+2=3x+2\\). Ef \\(3x\\) er dregið frá báðum hliðum stendur eftir \\(2=2\\), sem er alltaf satt. Þess vegna má \\(x\\) vera hvaða rauntala sem er.\u003c/p>\u003cp>\u003cstrong>Til samanburðar:\u003c/strong> Ef jafnan hefði orðið \\(2=5\\) væri \u003cem>engin\u003c/em> lausn. Ef breytan stæði enn eftir, t.d. \\(2x=6\\), fengist ein lausn.\u003c/p>"},{"source_id":"Þ3","title":"Jafngildisskref og svigareglur","prompt":"\u003cp>Gefin er jafnan \\(1 - 3(x - 5) = 4 + 2(x + 3)\\). Hvert af eftirfarandi sýnir rétt og einfaldað jafngilt skref eftir að leyst hefur verið úr svigum?\u003c/p>","options":["\\(1 - 3x - 15 = 4 + 2x + 6\\)","\\(16 - 3x = 10 + 2x\\)","\\(-2x - 10 = 5x + 3\\)","\\(16 - 3x = 6 + 2x\\)"],"correct":1,"explanation":"\u003cul>\n\u003cli>Rétt! Vinstri hlið: \\(1 - 3x + 15 = 16 - 3x\\). Hægri hlið: \\(4 + 2x + 6 = 10 + 2x\\).\u003c/li>\n\u003cli>Einangrun gefur síðan: \\(16 - 10 = 2x + 3x \\implies 6 = 5x \\implies x = \\frac{6}{5}\\).\u003c/li>\n\u003c/ul>","id":"tri3"}]},"mid":{"date":"Miðvikudagur 21. október","name":"Brotajöfnur og nefnaraskilyrði","questions":[{"source_id":"M1","title":"Villugreining – Brotastrik sem svigi","prompt":"\u003cp>Nemandi átti að leysa jöfnuna \\(\\frac{x + 2}{2} - \\frac{x - 1}{3} = 4\\). Nemandinn margfaldaði alla liði með samnefnaranum \\(6\\):\u003cbr>\n\\[\\text{Lína 1: } 3(x + 2) - 2(x - 1) = 24\\]\u003cbr>\n\\[\\text{Lína 2: } 3x + 6 - 2x - 2 = 24\\]\u003cbr>\n\\[\\text{Lína 3: } x + 4 = 24\\]\u003cbr>\n\\[\\text{Lína 4: } x = 20\\]\u003c/p>\n\u003cp>Í hvaða línu kom villan fram og hvert er rétt svar?\u003c/p>","options":["Lína 1 er röng; rétt svar er \\(x = 12\\)","Lína 2 er röng; rétt svar er \\(x = 16\\)","Lína 3 er röng; rétt svar er \\(x = 18\\)","Útreikningurinn er alveg réttur"],"correct":1,"explanation":"\u003cul>\n\u003cli>Rétt greint! Mínustáknið fyrir framan síðara brotið á við \u003cem>allan teljarann\u003c/em>. Þegar \\(-2\\) er margfaldað við \\((x - 1)\\) fæst \\(-2 \\cdot (-1) = +2\\).\u003c/li>\n\u003cli>Rétt lína 2 er: \\(3x + 6 - 2x + 2 = 24 \\implies x + 8 = 24 \\implies x = 16\\).\u003c/li>\n\u003c/ul>","id":"mid1","moreExplanation":"\u003cp>Í liðnum \\(-2(x-1)\\) á mínusmerkið við \u003cstrong>allan svigann\u003c/strong>:\u003c/p>\u003cp>\\[-2(x-1)=-2x+2,\\]\u003c/p>\u003cp>því \\((-2)\\cdot(-1)=+2\\). Rétta jafnan verður því \\(3x+6-2x+2=24\\), eða \\(x+8=24\\). Svarið er \\(x=16\\).\u003c/p>"},{"source_id":"M2","title":"Nefnaraskilyrði og bannsvæði","prompt":"\u003cp>Skoðaðu jöfnuna \\(\\frac{2}{x} + 3 = \\frac{3}{4} - \\frac{5}{2x}\\). Hvaða skilyrði verður að gilda um breytuna \\(x\\) áður en jafnan er leyst, og hver er samnefnari allra liða?\u003c/p>","options":["Skilyrði \\(x \\neq 4\\); samnefnari \\(2x\\)","Skilyrði \\(x \\neq 0\\); samnefnari \\(4x\\)","Skilyrði \\(x \\neq 2\\); samnefnari \\(8x\\)","Engin skilyrði eru nauðsynleg; samnefnari \\(4\\)"],"correct":1,"explanation":"\u003cul>\n\u003cli>Mjög gott! Þar sem breytan \\(x\\) stendur í nefnara má hún ekki vera \\(0\\) (\\(x \\neq 0\\)), því deiling með núlli er óskilgreind. Minnsti samnefnari \\(x\\), \\(4\\) og \\(2x\\) er \\(4x\\).\u003c/li>\n\u003c/ul>","id":"mid2","moreExplanation":"\u003cp>\u003cstrong>Hvernig finn ég samnefnarann?\u003c/strong> Nefnararnir eru \\(x\\), \\(4\\) og \\(2x\\). Við viljum finna eins einfalda stæðu og hægt er sem allir þrír nefnarar ganga upp í.\u003c/p>\u003cp>Byrjaðu á \\(2x\\), sem inniheldur bæði \\(x\\) og stuðulinn \\(2\\). Til þess að \\(4\\) gangi líka upp í samnefnarann þarf stuðullinn að vera \\(4\\). Því veljum við \\(4x\\).\u003c/p>\u003cp>Prófum með deilingu:\u003c/p>\u003cp>\\[\\frac{4x}{x}=4,\\qquad \\frac{4x}{4}=x,\\qquad \\frac{4x}{2x}=2.\\]\u003c/p>\u003cp>Engin þessara niðurstaðna er brot. Þetta virkar svo lengi sem \\(x\\neq0\\). Þess vegna er \\(4x\\) einfaldasti sameiginlegi nefnarinn hér.\u003c/p>"},{"source_id":"M3","title":"Margföldun heilla liða við samnefnara","prompt":"\u003cp>Þegar jafnan \\(\\frac{x - 2}{x} + 5 = \\frac{7}{2x}\\) er leyst með því að margfalda alla liði með samnefnaranum \\(2x\\), hver verður jafnan án brota og hvert er gildi \\(x\\)?\u003c/p>","options":["\\(2(x - 2) + 5 = 7 \\implies x = 3\\)","\\(2(x - 2) + 10x = 7 \\implies x = \\frac{11}{12}\\)","\\(x - 2 + 10x = 7 \\implies x = \\frac{9}{11}\\)","\\(2(x - 2) + 5x = 14 \\implies x = \\frac{18}{7}\\)"],"correct":1,"explanation":"\u003cul>\n\u003cli>Rétt! Algeng villa er að gleyma að margfalda heiltöluliðinn \\(+5\\) við samnefnarann \\(2x\\).\u003c/li>\n\u003cli>Rétt skref: \\(2x \\cdot \\frac{x-2}{x} + 2x \\cdot 5 = 2x \\cdot \\frac{7}{2x} \\implies 2(x - 2) + 10x = 7 \\implies 2x - 4 + 10x = 7 \\implies 12x = 11 \\implies x = \\frac{11}{12}\\).\u003c/li>\n\u003c/ul>","id":"mid3","moreExplanation":"\u003cp>Þegar þú margfaldar \u003cstrong>báðar hliðar jöfnunnar\u003c/strong> með samnefnara verður að margfalda \u003cstrong>hvern lið\u003c/strong>:\u003c/p>\u003cp>\\[2x\\cdot\\frac{x-2}{x}+2x\\cdot5=2x\\cdot\\frac7{2x}.\\]\u003c/p>\u003cp>Fyrsti liðurinn verður \\(2(x-2)\\), miðliðurinn \\(10x\\), og hægri hlið verður \\(7\\). Því fæst \\(2(x-2)+10x=7\\). Hér er \\(x\\neq0\\) forsenda.\u003c/p>"}]},"fim":{"date":"Fimmtudagur 22. október","name":"Að margfalda í kross og velja aðferð","questions":[{"source_id":"F1","title":"Undirbúningur fyrir margföldun í kross","prompt":"\u003cp>Gefin er jafnan \\(\\frac{1}{4} + \\frac{2}{x + 4} = 1\\). Hvaða skref er rétt að taka \u003cem>áður\u003c/em> en margfaldað er í kross?\u003c/p>","options":["Margfalda strax í kross og fá \\(1(x + 4) + 8 = 4\\)","Draga \\(\\frac{1}{4}\\) frá báðum hliðum til að fá \\(\\frac{2}{x + 4} = \\frac{3}{4}\\) og margfalda síðan í kross","Margfalda allt með \\(x + 4\\) og fá \\(1 + 2 = 1\\)","Snúa öllum brotum við og fá \\(4 + \\frac{x + 4}{2} = 1\\)"],"correct":1,"explanation":"\u003cul>\n\u003cli>Rétt! Þessa reglu um að margfalda í kross má nota þegar eitt brot er jafnt öðru broti (\\(\\frac{A}{B} = \\frac{C}{D}\\)).\u003c/li>\n\u003cli>Við færum \\(\\frac{1}{4}\\) yfir: \\(\\frac{2}{x + 4} = 1 - \\frac{1}{4} = \\frac{3}{4}\\). Þegar margfaldað er í kross fæst síðan: \\(3(x + 4) = 8 \\implies 3x + 12 = 8 \\implies 3x = -4 \\implies x = -\\frac{4}{3}\\).\u003c/li>\n\u003c/ul>\u003cp>\u003cstrong>Athugun:\u003c/strong> Í upphaflegu jöfnunni þarf \\(x\\neq -4\\). Lausnin \\(x=-\\frac{4}{3}\\) er leyfileg.\u003c/p>","id":"fim1","moreExplanation":"\u003cp>Að margfalda í kross er leið til að vinna úr \u003cstrong>jöfnu milli tveggja brota\u003c/strong>, t.d. \\(\\frac AB=\\frac CD\\), með \\(B,D\\neq0\\).\u003c/p>\u003cp>Upphaflega eru tveir liðir vinstra megin. Byrjaðu því á að einangra brotið:\u003c/p>\u003cp>\\[\\frac2{x+4}=1-\\frac14=\\frac34.\\]\u003c/p>\u003cp>Nú má margfalda í kross: \\(2\\cdot4=3(x+4)\\). Mundu líka skilyrðið \\(x\\neq-4\\).\u003c/p>"},{"source_id":"F2","title":"Annars stigs liðir sem eyðast út","prompt":"\u003cp>Leystu jöfnuna \\(\\frac{x}{2} = \\frac{x^2 + 3}{2x + 3}\\) með því að margfalda í kross. Hvert er gildi \\(x\\)?\u003c/p>","options":["\\(x = 3\\)","\\(x = 2\\)","\\(x = -2\\)","Jafnan hefur enga lausn því \\(x^2\\) kemur fyrir"],"correct":1,"explanation":"\u003cul>\n\u003cli>Rétt! Þegar margfaldað er í kross fæst: \\(x(2x + 3) = 2(x^2 + 3) \\implies 2x^2 + 3x = 2x^2 + 6\\).\u003c/li>\n\u003cli>Hér eyðist \\(2x^2\\) út af báðum hliðum! Eftir stendur \\(3x = 6 \\implies x = 2\\).\u003c/li>\n\u003c/ul>\u003cp>\u003cstrong>Athugun:\u003c/strong> Í upphaflegu jöfnunni þarf einnig að vera \\(2x+3\\neq 0\\). Lausnin \\(x=2\\) uppfyllir það skilyrði.\u003c/p>","id":"fim2","moreExplanation":"\u003cp>Það að \\(x^2\\) komi fyrir þýðir ekki endilega að leysa þurfi annars stigs jöfnu. Hér verða annars stigs liðirnir eins beggja vegna:\u003c/p>\u003cp>\\[2x^2+3x=2x^2+6.\\]\u003c/p>\u003cp>Drögum \\(2x^2\\) frá báðum hliðum. Eftir stendur \\(3x=6\\), svo \\(x=2\\). Sannprófa þarf einnig að \\(2x+3\\neq0\\), sem stenst fyrir \\(x=2\\).\u003c/p>"},{"source_id":"F3","title":"Margföldun í kross með tvíliðum","prompt":"\u003cp>Leystu jöfnuna \\(\\frac{2}{x + 2} = \\frac{3}{x - 3}\\). Hvað fæst þegar margfaldað er í kross og hvert er lokasvarið?\u003c/p>","options":["\\(2x - 3 = 3x + 2 \\implies x = -5\\)","\\(2(x - 3) = 3(x + 2) \\implies 2x - 6 = 3x + 6 \\implies x = -12\\)","\\(2x - 6 = 3x + 6 \\implies x = 0\\)","\\(2(x + 2) = 3(x - 3) \\implies x = 13\\)"],"correct":1,"explanation":"\u003cul>\n\u003cli>Rétt! Margföldun í kross: \\(2(x - 3) = 3(x + 2) \\implies 2x - 6 = 3x + 6\\).\u003c/li>\n\u003cli>Einangrun: \\(2x - 3x = 6 + 6 \\implies -x = 12 \\implies x = -12\\). (Skilyrði: \\(x \\neq -2, 3\\), svo \\(x = -12\\) er gild lausn).\u003c/li>\n\u003c/ul>","id":"fim3"}]},"fos":{"date":"Föstudagur 23. október","name":"Formúlueinangrun","questions":[{"source_id":"Fö1","title":"Að taka breytu út fyrir sviga","prompt":"\u003cp>Gefin er formúlan \\(RS + T = \\frac{U(R - T)}{V}\\). Við viljum einangra breytuna \\(T\\).\u003cbr>\nEftir að margfaldað hefur verið með \\(V\\) og leyst úr svigum fæst:\u003cbr>\n\\[RSV + TV = UR - UT\\]\u003cbr>\nHvað er rétt að gera næst til að einangra \\(T\\)?\u003c/p>\u003cp>\u003cstrong>Forsendur:\u003c/strong> \\(V\\neq 0\\) og \\(U+V\\neq 0\\).\u003c/p>","options":["Deila strax með \\(V\\) til að fá \\(T\\) einan","Safna öllum liðum með \\(T\\) á eina hlið, taka \\(T\\) út fyrir sviga og deila","Draga \\(RSV\\) frá og strika út \\(T\\) báðum megin","Deila öllu með \\(U\\)"],"correct":1,"explanation":"\u003cul>\n\u003cli>Mjög vel gert! Þar sem breytan \\(T\\) kemur fyrir í tveimur liðum (\\(TV\\) og \\(-UT\\)) verðum við að safna þeim saman:\u003c/li>\n\u003cli>\\(TV + UT = UR - RSV \\implies T(V + U) = UR - RSV \\implies T = \\frac{UR - RSV}{V + U} = \\frac{R(U - SV)}{U + V}\\).\u003c/li>\n\u003c/ul>\u003cp>\u003cstrong>Athugun:\u003c/strong> Í upphafsformúlunni þarf \\(V\\neq 0\\). Deiling með \\(U+V\\) krefst einnig \\(U+V\\neq 0\\). Þegar \\(U+V=0\\) þarf að skoða sérstakt tilvik.\u003c/p>","id":"fos1","challenge":true,"moreExplanation":"\u003cp>Breytan \\(T\\) kemur fyrir í \u003cstrong>tveimur liðum\u003c/strong>. Markmiðið er að skrifa þá saman sem eitt margfeldi:\u003c/p>\u003cp>\\[TV+UT=T(V+U).\\]\u003c/p>\u003cp>Þetta er dreifireglan notuð \u003cem>aftur á bak\u003c/em>. Þá fæst \\(T(V+U)=UR-RSV\\) og hægt er að deila með \\(V+U\\), að því gefnu að \\(V+U\\neq0\\).\u003c/p>"},{"source_id":"Fö2","title":"Breyta í teljara og nefnara","prompt":"\u003cp>Einangraðu breytuna \\(x\\) úr formúlunni \\(\\frac{x}{2 + xy} = R\\). Hvert er rétt lokasvar?\u003c/p>\u003cp>\u003cstrong>Forsenda:\u003c/strong> \\(Ry\\neq 1\\).\u003c/p>","options":["\\(x = 2R + xy\\)","\\(x = \\frac{2R}{1 - Ry}\\)","\\(x = \\frac{2R}{1 + Ry}\\)","\\(x = \\frac{R - 2}{y}\\)"],"correct":1,"explanation":"\u003cul>\n\u003cli>Rétt! Margfaldum upp úr nefnara: \\(x = R(2 + xy) \\implies x = 2R + Rxy\\).\u003c/li>\n\u003cli>Söfnum \\(x\\)-liðum á vinstri hlið: \\(x - Rxy = 2R \\implies x(1 - Ry) = 2R \\implies x = \\frac{2R}{1 - Ry}\\).\u003c/li>\n\u003c/ul>\u003cp>\u003cstrong>Athugun:\u003c/strong> Jafnan krefst \\(2+xy\\neq 0\\). Lausnarformúlan gildir þegar \\(1-Ry\\neq 0\\); ef \\(Ry=1\\) er engin lausn.\u003c/p>","id":"fos2","challenge":true,"moreExplanation":"\u003cp>Hér kemur \\(x\\) fyrir bæði ofan og neðan brotastriksins. Fyrst er margfaldað með nefnaranum:\u003c/p>\u003cp>\\[x=R(2+xy)=2R+Rxy.\\]\u003c/p>\u003cp>Söfnum síðan öllum \\(x\\)-liðum á eina hlið og tökum \\(x\\) út fyrir sviga:\u003c/p>\u003cp>\\[x-Rxy=2R\\quad\\Rightarrow\\quad x(1-Ry)=2R.\\]\u003c/p>\u003cp>Nú má aðeins deila með \\(1-Ry\\) ef það er ekki núll. Ef \\(Ry=1\\) fæst \\(0=2R\\), sem getur ekki gilt þegar \\(Ry=1\\); því er engin lausn í því tilviki.\u003c/p>"},{"source_id":"Fö3","title":"Flatarmál trapisu – einangrun hæðar","prompt":"\u003cp>Formúla fyrir flatarmál trapisu er \\(F = \\frac{h(a + b)}{2}\\). Einangraðu hæðina \\(h\\).\u003c/p>\u003cp>Gerðu ráð fyrir að \\(a\\) og \\(b\\) séu jákvæðar grunnlengdir.\u003c/p>","options":["\\(h = \\frac{F}{2(a + b)}\\)","\\(h = \\frac{2F}{a + b}\\)","\\(h = 2F - a - b\\)","\\(h = \\frac{2F - a}{b}\\)"],"correct":1,"explanation":"\u003cul>\n\u003cli>Rétt! Margfaldum með \\(2\\): \\(2F = h(a + b)\\). Deilum með \\((a + b)\\): \\(h = \\frac{2F}{a + b}\\).\u003c/li>\n\u003c/ul>\u003cp>\u003cstrong>Athugun:\u003c/strong> Við deilingu er gert ráð fyrir \\(a+b\\neq 0\\), sem gildir fyrir jákvæðar grunnlengdir trapisu.\u003c/p>","id":"fos3"}]}}}</script>
-<script>
-(()=>{
-'use strict';
-const DATA=JSON.parse(document.getElementById('question-data').textContent);
-const DIAG=DATA.diag, DAYS=DATA.days;
-const KEY='staer2af05_profadu_skilninginn_nlm_v1_16q';
-const safeStorage=(()=>{try{let k='__staer2af05_test__';localStorage.setItem(k,'1');localStorage.removeItem(k);return true;}catch(e){return false;}})();
-const fresh=()=>({version:2,diagSelections:{},diagSubmitted:false,practice:{},savedAt:null});
-let state=fresh();
-try{if(safeStorage){const raw=JSON.parse(localStorage.getItem(KEY)||'null');if(raw&&raw.version===2){state={...fresh(),...raw};}}}catch(e){state=fresh();}
+(()=>{'use strict';
+const data=JSON.parse(document.getElementById('questionsData').textContent);
+const KEY='staer2af05_vefbok_vika1_profadu_skilninginn_8q_v2';
 const el=id=>document.getElementById(id);
-let mathReady=false;
-let mathRenderQueue=Promise.resolve();
-function typesetMath(root=document.body){
-  if(!mathReady || !window.MathJax?.typesetPromise) return;
-  mathRenderQueue=mathRenderQueue.then(()=>window.MathJax.typesetPromise([root])).catch(err=>console.warn('Villa í stærðfræðibirtingu',err));
-}
-window.mathJaxOnLoad=()=>{
-  if(!window.MathJax?.startup?.promise)return;
-  window.MathJax.startup.promise.then(()=>{mathReady=true;typesetMath(document.body);});
-};
-function save(){state.savedAt=new Date().toISOString();if(safeStorage){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){el('storagewarning').classList.remove('hidden');}}updateCounts();}
-const percent=(n,d)=>d?Math.round(100*n/d):0;
-const totalPractice=Object.values(DAYS).reduce((s,d)=>s+d.questions.length,0);
-const answeredPractice=()=>Object.values(state.practice).filter(x=>x&&Number.isInteger(x.first)).length;
-const firstCorrectPractice=()=>Object.values(state.practice).filter(x=>x&&x.firstCorrect).length;
-const scoreDiag=()=>DIAG.filter(q=>state.diagSelections[q.id]===q.correct).length;
-function updateCounts(){const dc=Object.keys(state.diagSelections).length;el('diagCount').textContent=state.diagSubmitted?'Lokið':`${dc}/${DIAG.length}`;el('weekCount').textContent=`${answeredPractice()}/${totalPractice}`;for(const [id,day] of Object.entries(DAYS)){const num=day.questions.filter(q=>Number.isInteger(state.practice[q.id]?.first)).length;el('tab_'+id).textContent=`${num}/${day.questions.length}`;}}
-function show(tab){document.querySelectorAll('[data-section]').forEach(e=>e.classList.toggle('hidden',e.dataset.section!==tab));document.querySelectorAll('[data-tab]').forEach(btn=>{const active=btn.dataset.tab===tab;btn.setAttribute('aria-selected',String(active));btn.tabIndex=active?0:-1;});if(tab==='overview')renderOverview();typesetMath(el('section_'+tab)||el('overview'));window.scrollTo({top:0,behavior:'instant'});}
-function qOptions(q,group,selection,disabled){return q.options.map((opt,i)=>`<label class="option"><input type="radio" name="${group}" value="${i}" ${selection===i?'checked':''} ${disabled?'disabled':''}><span>${opt}</span></label>`).join('');}
-function deeperExplanation(q){return q.moreExplanation?`<details class="more-info"><summary>Sjá nánari skýringu</summary><div class="more-info-content">${q.moreExplanation}</div></details>`:'';}
-function registerExpanders(body){body.querySelectorAll('details.more-info').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)typesetMath(d);}));}
-function diagnostic(){const body=el('diagnostic-questions');if(mathReady)window.MathJax.typesetClear?.([body]);body.innerHTML=DIAG.map((q,i)=>`<article class="question" id="${q.id}"><div class="qhead">SPURNING ${i+1} AF ${DIAG.length}</div><div class="qprompt">${q.prompt}</div><div role="group" aria-label="Svar við spurningu ${i+1}">${qOptions(q,'diag_'+q.id,state.diagSelections[q.id],state.diagSubmitted)}</div><div class="feedback ${state.diagSelections[q.id]===q.correct?'correct':'wrong'} ${state.diagSubmitted?'':'hidden'}" role="status">${state.diagSelections[q.id]===q.correct?'Rétt svar.':'Rétt svar: '+q.options[q.correct]+'.'} ${q.explanation}${deeperExplanation(q)}</div></article>`).join('');
-body.querySelectorAll('input').forEach(inp=>inp.addEventListener('change',()=>{if(state.diagSubmitted)return;state.diagSelections[inp.name.slice(5)]=Number(inp.value);save();updateDiagnosticButton();}));
-if(state.diagSubmitted){el('diagnostic-submit').classList.add('hidden');el('diagnostic-result').classList.remove('hidden');el('diagnostic-score').textContent=`${scoreDiag()}/${DIAG.length}`;}else{el('diagnostic-submit').classList.remove('hidden');el('diagnostic-result').classList.add('hidden');}
-updateDiagnosticButton(); registerExpanders(body); typesetMath(body);}
-function updateDiagnosticButton(){const x=Object.keys(state.diagSelections).length;el('diagnostic-progress').textContent=`Svarað: ${x} af ${DIAG.length}. Svörin verða ekki metin fyrr en þú skilar könnuninni.`;el('diagnostic-submit').disabled=x!==DIAG.length||state.diagSubmitted;el('diagnostic-progressbar').style.width=percent(x,DIAG.length)+'%';}
-function practice(dayid){const day=DAYS[dayid],body=el('questions_'+dayid);if(mathReady)window.MathJax.typesetClear?.([body]);body.innerHTML=day.questions.map((q,i)=>{const result=state.practice[q.id];const sel=result&&Number.isInteger(result.last)?result.last:null;const fb=result?`<div class="feedback ${sel===q.correct?'correct':'wrong'}" role="status"><strong>${sel===q.correct?'Rétt!':'Ekki alveg.'}</strong> ${q.explanation}${deeperExplanation(q)} <div class="mini">${result.firstCorrect?'Rétt í fyrstu tilraun.':'Fyrsta tilraun var ekki rétt.'}</div></div>`:'';return `<article class="question" id="${q.id}"><div class="qhead">VERKEFNI ${i+1} AF ${day.questions.length}${q.challenge?' · DÝPKUN':''}</div><div class="qprompt"><div class="mini" style="margin-bottom:4px;color:var(--navy2)">${q.title||''}</div>${q.prompt}</div><div role="group" aria-label="Svar við verkefni ${i+1}">${qOptions(q,'practice_'+q.id,sel,false)}</div><div class="qactions"><button class="btn-secondary" type="button" data-check="${q.id}">Athuga svar</button></div>${fb}</article>`;}).join('');
-body.querySelectorAll('[data-check]').forEach(b=>b.addEventListener('click',()=>{const q=day.questions.find(x=>x.id===b.dataset.check);const checked=body.querySelector(`input[name="practice_${q.id}"]:checked`);if(!checked){el('toast').textContent='Veldu svar áður en þú athugar.';el('toast').classList.remove('hidden');setTimeout(()=>el('toast').classList.add('hidden'),2300);return;}const index=Number(checked.value);let before=state.practice[q.id];if(!before){before={first:index,firstCorrect:index===q.correct};}before.last=index;before.attempts=(before.attempts||0)+1;state.practice[q.id]=before;save();practice(dayid);el(q.id).scrollIntoView({block:'center',behavior:'instant'});}));
-registerExpanders(body); typesetMath(body);}
-function renderOverview(){const sc=answeredPractice(),correct=firstCorrectPractice();el('s_diag').textContent=state.diagSubmitted?`${scoreDiag()}/${DIAG.length}`:'Ekki lokið';el('s_done').textContent=`${sc}/${totalPractice}`;el('s_correct').textContent=sc?`${correct}/${sc}`:'—';el('overallProgressbar').style.width=percent(sc,totalPractice)+'%';el('savedAt').textContent=state.savedAt?new Date(state.savedAt).toLocaleString('is-IS',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):'Engin vistun enn';el('summaryrows').innerHTML=Object.entries(DAYS).map(([id,d])=>{const attempted=d.questions.filter(q=>state.practice[q.id]&&Number.isInteger(state.practice[q.id].first)).length;const good=d.questions.filter(q=>state.practice[q.id]?.firstCorrect).length;return `<tr><td><strong>${d.date.split(' ')[0]}</strong><div class="mini">${d.name}</div></td><td>${attempted}/${d.questions.length}</td><td>${good}/${attempted||0}</td></tr>`;}).join('');el('localInfo').textContent=safeStorage?'Framvinda vistast aðeins í þessum vafra á þessu tæki.':'VIÐVÖRUN: Vafrinn leyfir ekki staðbundna vistun. Þú gætir tapað framvindu við lokun.';typesetMath(el('overview'));}
-function initialize(){if(!safeStorage)el('storagewarning').classList.remove('hidden');el('diagnostic-submit').addEventListener('click',()=>{if(state.diagSubmitted||Object.keys(state.diagSelections).length!==DIAG.length)return;state.diagSubmitted=true;save();diagnostic();});for(const id of Object.keys(DAYS))practice(id);diagnostic();updateCounts();renderOverview();document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.tab)));el('goOverview').addEventListener('click',()=>show('overview'));el('goBack').addEventListener('click',()=>show('diag'));el('clearAll').addEventListener('click',()=>{if(confirm('Viltu örugglega eyða ALLRI framvindu, þar með talinni forþekkingarkönnun, á þessu tæki? Þetta verður ekki afturkallað.')){state=fresh();if(safeStorage)localStorage.removeItem(KEY);diagnostic();for(const id of Object.keys(DAYS))practice(id);updateCounts();show('diag');}});el('printSummary').addEventListener('click',()=>window.print());show('diag');}
-initialize();
-window.addEventListener('load',()=>typesetMath(document));
+const fresh=()=>({v:2,answers:{}});
+let state=fresh(), storage=true;
+try {localStorage.setItem(KEY+'_test','ok');localStorage.removeItem(KEY+'_test'); const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s?.v===2&&s.answers)state=s;}catch(e){storage=false;}
+const completed=()=>data.filter(q=>Number.isInteger(state.answers[q.id]?.first)).length;
+const unlocked=()=>completed()===data.length;
+let mathReady=false;let chain=Promise.resolve();
+function typeset(root=document.body){if(!mathReady||!window.MathJax?.typesetPromise)return;chain=chain.then(()=>window.MathJax.typesetPromise([root])).catch(e=>console.warn('MathJax',e));}
+window.mathJaxLoaded=()=>{window.MathJax?.startup?.promise?.then(()=>{mathReady=true;typeset(document.body);});};
+function save(){if(storage){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){storage=false;}}}
+function setTab(tab){if(tab==='task'&&!unlocked())return; ['quiz','task','results','review'].forEach(x=>el('view-'+x).classList.toggle('hidden',x!==tab));document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===tab)));if(tab==='results')renderResults();typeset(el('view-'+tab));window.scrollTo(0,0);}
+function progress(){const n=completed();el('progressLabel').textContent=`${n} af ${data.length} spurningum lokið`;el('progressFill').style.width=(n/data.length*100)+'%';el('taskTab').disabled=!unlocked();el('lock').textContent=unlocked()?'· opið':'· læst';el('quizLocked').classList.toggle('hidden',unlocked());el('quizReady').classList.toggle('hidden',!unlocked());}
+function renderQuestions(){let contents='';data.forEach((q,i)=>{const a=state.answers[q.id];const current=a?.last;
+contents+=`<article class="question" id="q_${q.id}"><div class="qtop">SPURNING ${i+1} · ${q.title}</div><div class="prompt">${q.prompt}</div><div class="options">`;
+q.options.forEach((v,j)=>{contents+=`<label class="opt"><input type="radio" name="q_${q.id}" value="${j}" ${current===j?'checked':''}><span>${v}</span></label>`;});
+contents+=`</div><button type="button" class="smallbutton" data-check="${q.id}">Athuga svar</button>`;
+if(a){const good=current===q.correct;contents+=`<div class="fb ${good?'':'wrong'}" role="status"><h4>${good?'Rétt svar.':'Skoðaðu þetta atriði.'}</h4><p>${q.feedback[current]}</p>`;
+if(q.explanation)contents+=`<div class="explain">${q.explanation}</div>`;
+if(q.more)contents+=`<details class="detail"><summary>Sjá nánari skýringu</summary><div class="detail-inner">${q.more}</div></details>`;
+contents+='</div>';}
+contents+='</article>';});
+const root=el('questions');if(mathReady)window.MathJax?.typesetClear?.([root]);root.innerHTML=contents;
+root.querySelectorAll('button[data-check]').forEach(b=>b.addEventListener('click',()=>{
+const q=data.find(q=>q.id===b.dataset.check);const selected=root.querySelector(`input[name="q_${q.id}"]:checked`);
+if(!selected){alert('Veldu svar áður en þú athugar.');return;}
+const v=Number(selected.value);const prev=state.answers[q.id];state.answers[q.id]={first:prev?.first??v,last:v};save();renderQuestions();progress();el('q_'+q.id).scrollIntoView({block:'center',behavior:'instant'});
+}));
+root.querySelectorAll('details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)typeset(d);}));typeset(root);}
+function renderResults(){let correct=0,wrong=0;el('resultRows').innerHTML=data.map((q,i)=>{const a=state.answers[q.id];let val='Ekki svarað',cl='';if(a){if(a.first===q.correct){correct++;val='Rétt';cl='right';}else{wrong++;val='Rangt';cl='wrong-text';}}return `<tr><td>${i+1}</td><td>${q.title}</td><td class="${cl}">${val}</td></tr>`;}).join('');el('correctCount').textContent=correct;el('wrongCount').textContent=wrong;el('printBtn').disabled=!unlocked();el('finishNote').textContent=unlocked()?`Öllum ${data.length} spurningunum svarað. Rétt í fyrstu tilraun: ${correct}. Rangt í fyrstu tilraun: ${wrong}.`:`Svarað hefur verið ${completed()} af ${data.length} spurningum. Prentun opnast þegar öllum er lokið.`;}
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
+el('goTask').addEventListener('click',()=>setTab('task'));
+el('printBtn').addEventListener('click',()=>{renderResults();if(unlocked())window.print();});
+el('resetBtn').addEventListener('click',()=>{if(confirm('Viltu örugglega núllstilla öll svörin þín í þessari vefbók?')){state=fresh();save();renderQuestions();progress();renderResults();setTab('quiz');}});
+renderQuestions();progress();renderResults();setTab('quiz');if(window.MathJax?.startup?.promise)window.MathJax.startup.promise.then(()=>{mathReady=true;typeset(document.body);});
 })();
 </script>
-</body>
-</html>
+<script>
+(()=>{'use strict';
+const KEY='staer2af05_vefbok_vika1_valfrjals_upprifjun_v4';
+const activities=[
+ {
+  "id": "ord-v4",
+  "kind": "match",
+  "title": "Þekkirðu hugtökin?",
+  "question": "Paraðu hvert stærðfræðihugtak við rétta skýringu.",
+  "pairs": [
+   [
+    "Breyta",
+    "Tákn sem getur staðið fyrir tölu, til dæmis \\(x\\)."
+   ],
+   [
+    "Stæða",
+    "Tölur og/eða breytur tengdar reikniaðgerðum, t.d. \\(3x+2\\)."
+   ],
+   [
+    "Jafna",
+    "Tvær stæður tengdar með jafnaðarmerki, t.d. \\(3x+2=11\\)."
+   ],
+   [
+    "Liður",
+    "Hluti stæðu sem er aðgreindur með plús eða mínus."
+   ],
+   [
+    "Stuðull",
+    "Tölulegur margfaldari breytu, t.d. \\(-5\\) í \\(-5x\\)."
+   ]
+  ],
+  "choices": [
+   2,
+   4,
+   1,
+   0,
+   3
+  ],
+  "optionLabels": [
+   "Tákn sem stendur fyrir tölu",
+   "Stæða úr tölum, breytum og reikniaðgerðum",
+   "Tvær stæður með jafnaðarmerki",
+   "Hluti stæðu aðgreindur með + eða −",
+   "Tala sem margfaldar breytu"
+  ],
+  "note": "Stæða, eins og \\(3x+2\\), hefur ekkert jafnaðarmerki sem tengir hana við aðra stæðu. Jafna, eins og \\(3x+2=11\\), fullyrðir að tvær stæður séu jafnar. Í stæðunni \\(3x+2\\) er \\(3\\) stuðull \\(x\\)-liðarins."
+ },
+ {
+  "id": "roed-adgerda-v4",
+  "kind": "mc",
+  "title": "Röð reikniaðgerða",
+  "question": "Hvert er gildi \\(6+3\\cdot4\\)?",
+  "options": [
+   "\\(36\\)",
+   "\\(18\\)",
+   "\\(22\\)",
+   "\\(24\\)"
+  ],
+  "correct": 1,
+  "feedback": [
+   "Þá hefurðu reiknað \\(6+3\\) fyrst. Margföldun hefur forgang fram yfir samlagningu þegar enginn svigi breytir röðinni.",
+   "Þú reiknaðir margföldunina fyrst og lagðir síðan \\(6\\) við.",
+   "Hér virðist \\(6\\) hafa verið margfaldað með \\(3\\). Skoðaðu hvaða tölur margföldunartáknið tengir.",
+   "Þú fékkst \\(6\\cdot4\\), en það er \\(3\\cdot4\\) sem á að reikna fyrst."
+  ],
+  "detail": "Reglan gefur margföldun forgang: \\[\\begin{aligned}6+3\\cdot4&=6+12\\\\[7pt]&=18.\\end{aligned}\\] Ef dæmið væri \\((6+3)\\cdot4\\), væri útkoman hins vegar \\(36\\)."
+ },
+ {
+  "id": "sviga-roed-v4",
+  "kind": "order",
+  "title": "Svigar og röð aðgerða",
+  "question": "Raðaðu skrefunum til að reikna \\(18-2(3+4)\\). Fyrst er reiknað innan svigans.",
+  "steps": [
+   "\\(18-2\\cdot7\\)",
+   "\\(4\\)",
+   "\\(18-14\\)"
+  ],
+  "correctOrder": [
+   0,
+   2,
+   1
+  ],
+  "note": "Fyrst er reiknað \u003cstrong>inni í sviganum\u003c/strong>, svo er margfaldað og síðast dregið frá: \\[\\begin{aligned}18-2(3+4)&=18-2\\cdot7\\\\[7pt]&=18-14\\\\[7pt]&=4.\\end{aligned}\\] Ekki draga \\(2\\) frá \\(18\\) áður en margfölduninni er lokið."
+ },
+ {
+  "id": "likir-para-v4",
+  "kind": "match",
+  "title": "Hvaða liðir eru líkir?",
+  "question": "Paraðu hvern lið við annan lið sem má leggja við hann með því að sameina stuðlana.",
+  "pairs": [
+   [
+    "\\(3x\\)",
+    "\\(-5x\\)"
+   ],
+   [
+    "\\(4y\\)",
+    "\\(y\\)"
+   ],
+   [
+    "\\(7\\)",
+    "\\(-2\\)"
+   ]
+  ],
+  "choices": [
+   1,
+   2,
+   0
+  ],
+  "optionLabels": [
+   "−5x",
+   "y",
+   "−2"
+  ],
+  "note": "Líkir liðir hafa sömu breytu. Því má skrifa \\(3x-5x=-2x\\) og \\(4y+y=5y\\). Tölurnar \\(7\\) og \\(-2\\) eru báðar fastaliðir og má sameina í \\(5\\). Hins vegar má ekki leggja \\(3x\\) og \\(4y\\) saman sem einn lið."
+ },
+ {
+  "id": "einfalda-v4",
+  "kind": "mc",
+  "title": "Leggðu saman líka liði",
+  "question": "Einfaldaðu stæðuna \\(4x-3+2x+7\\).",
+  "options": [
+   "\\(6x+4\\)",
+   "\\(6x+10\\)",
+   "\\(2x+4\\)",
+   "\\(10x\\)"
+  ],
+  "correct": 0,
+  "feedback": [
+   "\\(4x\\) og \\(2x\\) eru líkir liðir; fastaliðina má einnig leggja saman.",
+   "Passaðu formerkið: \\(-3+7=4\\), ekki \\(10\\).",
+   "Taktu eftir að það er plús fyrir framan \\(2x\\). Því leggjum við stuðlana saman, \\(4+2=6\\).",
+   "\\(6x\\) er ekki líkur liður við fastatöluna \\(4\\). Ekki má breyta \\(6x+4\\) í \\(10x\\)."
+  ],
+  "detail": "Safnaðu saman líkum liðum og einfaldaðu: \\[\\begin{aligned}4x-3+2x+7&=(4x+2x)+(-3+7)\\\\[7pt]&=6x+4.\\end{aligned}\\] Hér erum við að \u003cstrong>einfalda stæðu\u003c/strong>, ekki leysa jöfnu."
+ },
+ {
+  "id": "villa-likir-v4",
+  "kind": "mc",
+  "title": "Finndu villuna",
+  "question": "Nemandi skrifar \\(3x+2+4x=9x\\). Í hverju felst villan?",
+  "options": [
+   "Hann lagði saman liði sem eru ekki líkir.",
+   "Hann hefði átt að margfalda \\(3x\\) og \\(4x\\).",
+   "Hann hefði átt að draga \\(2\\) frá báðum hliðum.",
+   "Engin villa er í útreikningnum."
+  ],
+  "correct": 0,
+  "feedback": [
+   "Það má sameina \\(3x\\) og \\(4x\\), en töluna \\(2\\) þarf að halda aðskildri.",
+   "Plúsmerkið segir okkur að leggja eigi saman líka liði, ekki margfalda þá.",
+   "Hér er verið að einfalda stæðu, ekki leysa jöfnu. Þú þarft að greina líka liði og leggja stuðlana saman.",
+   "Prófaðu t.d. \\(x=0\\): vinstri stæðan gefur \\(2\\), en hægri stæðan gefur \\(0\\). Stæðurnar eru því ekki jafngildar."
+  ],
+  "detail": "Rétt einföldun er: \\[\\begin{aligned}3x+2+4x&=(3x+4x)+2\\\\[7pt]&=7x+2.\\end{aligned}\\] \u003cstrong>Hvers vegna?\u003c/strong> Talan \\(2\\) hefur engan \\(x\\)-þátt. Því er hún ekki líkur liður við \\(3x\\) eða \\(4x\\)."
+ },
+ {
+  "id": "minus-svigi-v4",
+  "kind": "mc",
+  "title": "Mínus fyrir framan sviga",
+  "question": "Hvaða stæða er jafngild \\(-2(x-3)+4\\)?",
+  "options": [
+   "\\(-2x-2\\)",
+   "\\(-2x+10\\)",
+   "\\(-2x+6\\)",
+   "\\(2x+10\\)"
+  ],
+  "correct": 1,
+  "feedback": [
+   "Hér hefur margfeldið \\((-2)(-3)\\) fengið rangt formerki. Mínus sinnum mínus gefur plús.",
+   "Þú dreifðir \\(-2\\) á báða liði og lagðir fastaliðina saman.",
+   "Eftir að hafa leyst úr sviganum þarftu einnig að taka með \\(+4\\) utan hans.",
+   "Taktu eftir að stuðullinn við \\(x\\) er neikvæður: \\(-2\\cdot x=-2x\\)."
+  ],
+  "detail": "Dreifðu neikvæða stuðlinum á \u003cstrong>báða liði\u003c/strong>: \\[\\begin{aligned}-2(x-3)+4&=-2x+6+4\\\\[7pt]&=-2x+10.\\end{aligned}\\]"
+ },
+ {
+  "id": "einfoldun-roed-v4",
+  "kind": "order",
+  "title": "Einföldun í réttri röð",
+  "question": "Raðaðu skrefunum til að einfalda \\(3(x+2)+4x\\).",
+  "steps": [
+   "\\(7x+6\\)",
+   "\\(3x+6+4x\\)",
+   "\\((3x+4x)+6\\)"
+  ],
+  "correctOrder": [
+   1,
+   2,
+   0
+  ],
+  "note": "Beittu fyrst dreifireglu, raðaðu síðan \u003cstrong>líkum liðum\u003c/strong> saman og sameinaðu stuðlana: \\[\\begin{aligned}3(x+2)+4x&=3x+6+4x\\\\[7pt]&=(3x+4x)+6\\\\[7pt]&=7x+6.\\end{aligned}\\] Þú getur sett liði í aðra röð þegar þú gætir að formerkjum þeirra."
+ }
+];
+const el=id=>document.getElementById(id);
+const activityMap=Object.fromEntries(activities.map(x=>[x.id,x]));
+const defaultState=()=>({version:1,items:{}});
+let state=defaultState(),works=true;
+try{const k=KEY+'_test';localStorage.setItem(k,'1');localStorage.removeItem(k);const raw=JSON.parse(localStorage.getItem(KEY)||'null');if(raw?.version===1&&raw.items)state=raw;}catch(e){works=false;}
+const escapeText=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function save(){if(works){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){works=false;}}}
+function current(id){return state.items[id] || {attempts:0,done:false};}
+function updateProgress(){const n=activities.filter(x=>current(x.id).done).length;el('reviewProgress').textContent=`Valfrjáls upprifjun · ${n} af ${activities.length} verkefnum leyst. Hér eru engar einkunnir og þetta hefur ekki áhrif á skiladæmið.`;}
+function math(node){if(!window.MathJax?.startup?.promise)return;window.MathJax.startup.promise.then(()=>{window.MathJax.typesetClear?.([node]);return window.MathJax.typesetPromise?.([node]);}).catch(e=>console.warn('Upprifjun: stærðfræðibirting',e));}
+function matchingOptions(q,chosen){return '<option value="">Veldu skýringu</option>'+q.choices.map((j,k)=>`<option value="${j}" ${chosen===j?'selected':''}>${escapeText((q.optionLabels?.[j]||q.pairs[j][1]).replace(/\\\([^)]*\\\)/g,(m)=>m.slice(2,-2)))}</option>`).join('');}
+/* Preserve readable MathJax notation in match selects: compact, plain descriptions are used as option text. */
+function makeContent(q){const a=current(q.id);let html='';
+ if(q.kind==='mc'){html+=`<div class="review-options" role="group" aria-label="Svarmöguleikar">`+q.options.map((text,i)=>`<label class="review-option"><input type="radio" name="review_${q.id}" value="${i}" ${a.value===i?'checked':''}><span>${text}</span></label>`).join('')+'</div>';}
+ if(q.kind==='num')html+=`<label for="rev_num_${q.id}"><strong>Svar:</strong></label> <input id="rev_num_${q.id}" class="review-number" type="text" inputmode="decimal" autocomplete="off" placeholder="Skrifaðu tölu" value="${escapeText(a.raw||'')}">`;
+ if(q.kind==='match')html+=q.pairs.map((x,i)=>`<div class="pair-row"><strong>${x[0]}</strong><select aria-label="Paraðu ${escapeText(x[0].replace(/\\\(|\\\)/g,''))}" data-pair="${i}">${matchingOptions(q,a.values?.[i])}</select></div>`).join('');
+ if(q.kind==='order'){const seq=a.order || q.steps.map((_,i)=>i);html+=`<div class="review-help">Notaðu örvarnar til að færa skref upp eða niður.</div><div class="order-list">`+seq.map((step,i)=>`<div class="order-row"><div><strong>${i+1}.</strong> ${q.steps[step]}</div><div class="order-controls"><button type="button" data-move="${i}" data-dir="up" ${i===0?'disabled':''} aria-label="Færa skref ${i+1} upp">↑</button><button type="button" data-move="${i}" data-dir="down" ${i===seq.length-1?'disabled':''} aria-label="Færa skref ${i+1} niður">↓</button></div></div>`).join('')+'</div>';}
+ html+=`<div class="review-action"><button type="button" class="smallbutton" data-check-review="${q.id}">Athuga svar</button>${a.done?'<span class="note">Leyst · þú mátt æfa aftur</span>':''}</div><div id="review_fb_${q.id}"></div>`;return html;
+}
+function feedback(q,a,correct,message,more=''){const fb=el('review_fb_'+q.id);fb.innerHTML=`<div class="review-response ${correct?'':'incorrect'}" role="status"><strong>${correct?'Rétt.':'Athugaðu svarið.'}</strong><p>${message}</p>${more?`<details class="detail"><summary>${correct?'Sjá útfærð skref':'Sjá nánari skýringu'}</summary><div class="detail-inner">${more}</div></details>`:''}</div>`;fb.querySelectorAll('details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)math(d);}));math(fb);}
+function updateCard(q,success,message,more=''){const a=current(q.id);a.attempts=(a.attempts||0)+1;if(success)a.done=true;state.items[q.id]=a;save();feedback(q,a,success,message,more);updateProgress();}
+function tryAnswer(q,card){const a=current(q.id);if(q.kind==='mc'){
+   const chosen=card.querySelector(`input[name="review_${q.id}"]:checked`);if(!chosen){alert('Veldu svar áður en þú athugar.');return;}
+   a.value=Number(chosen.value);state.items[q.id]=a;const good=a.value===q.correct;updateCard(q,good,q.feedback[a.value],q.detail);return;
+ }
+ if(q.kind==='num'){
+   const text=card.querySelector('input.review-number').value.trim();if(!/^[-+]?\d+(?:[.,]\d+)?$/.test(text)){alert('Skrifaðu tölu, til dæmis 10.');return;}
+   const value=Number(text.replace(',','.'));a.raw=text;state.items[q.id]=a;const good=value===q.correct;updateCard(q,good,good?q.ok:q.wrong,q.detail);return;
+ }
+ if(q.kind==='match'){
+   const values=[...card.querySelectorAll('[data-pair]')].map(e=>e.value===''?null:Number(e.value));if(values.some(v=>v===null)){alert('Veldu svar við öllum pörunum.');return;}
+   a.values=values;state.items[q.id]=a;const count=values.filter((v,i)=>v===i).length;const good=count===q.pairs.length;
+   let text=good?'Öll pörin passa. Þú hefur tengt hugtökin við réttar merkingar.':`${count} af ${q.pairs.length} pörum eru rétt. Skoðaðu hvort lýsingin passi við hugtakið og prófaðu aftur.`;
+   updateCard(q,good,text,good?'':q.note);if(good){feedback(q,a,true,`${text} ${q.note}`);}return;
+ }
+ if(q.kind==='order'){
+   const seq=a.order||q.steps.map((_,i)=>i);const good=seq.every((v,i)=>v===q.correctOrder[i]);state.items[q.id]=a;
+   updateCard(q,good,good?'Skrefin eru í réttri röð.':'Röðin er ekki alveg rétt. Skoðaðu hvaða aðgerð hefur forgang og hvaða skref kemur næst.',q.note);return;
+ }
+}
+function attach(q,card){card.querySelector('[data-check-review]').addEventListener('click',()=>tryAnswer(q,card));
+ if(q.kind==='order')card.querySelectorAll('[data-move]').forEach(b=>b.addEventListener('click',()=>{
+   const a=current(q.id);const seq=[...(a.order||q.steps.map((_,i)=>i))];const i=Number(b.dataset.move),j=i+(b.dataset.dir==='up'?-1:1);if(j<0||j>=seq.length)return;[seq[i],seq[j]]=[seq[j],seq[i]];a.order=seq;state.items[q.id]=a;save();const content=card.querySelector('.review-content');content.innerHTML=makeContent(q);attach(q,card);math(content);
+ }));
+}
+function render(){const root=el('reviewActivities');root.innerHTML=activities.map((q,i)=>`<article class="review-card" id="review_${q.id}"><div class="review-sub">VALFRJÁLST VERKEFNI ${i+1}</div><h3>${q.title}</h3><p>${q.question}</p><div class="review-content">${makeContent(q)}</div></article>`).join('');activities.forEach(q=>attach(q,el('review_'+q.id)));updateProgress();math(root);}
+el('reviewReset').addEventListener('click',()=>{if(!confirm('Viltu byrja valfrjálsu upprifjunina upp á nýtt? Svör í „Prófaðu skilninginn“ breytast ekki.'))return;state=defaultState();save();render();});
+render();
+})();
+</script>
+</body></html>
