@@ -65,16 +65,32 @@
 .rv-guide-card{margin-bottom:12px;padding:11px;border:1px solid #e2e9ee;border-radius:9px;background:#f8fbfd}
 @media(max-width:740px){.rv-index,.rv-guided .rv-index{grid-template-columns:1fr}.rv-navigator{display:block}.rv-sidebar{position:static;display:flex;overflow-x:auto;margin-bottom:13px;padding:8px;gap:6px}.rv-sidebar .rv-choice{flex:0 0 165px;min-width:150px;padding:8px}.rv-topic{padding:12px}.rv-choice{min-height:96px}}
 @media print{#view-review{display:none!important}}
+
+
+/* Sýnishorn: stigskipt endurgjöf og leiðbeinandi framvinda. */
+.preview-kicker{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.045em;border-radius:30px;padding:3px 11px;margin:0 0 10px;border:1px solid #c5dbe2;background:#ffffffeb;color:#1b405a}
+@media screen{#view-results>.metrics{display:none}}
+.progress-explanation{font-size:.9rem;color:#536c7b;margin:-11px 0 20px;max-width:730px}
+.fb-stages{display:flex;gap:8px;align-items:center;font-size:.79rem;font-weight:800;color:#496e79;flex-wrap:wrap;margin:7px 0 10px}.fb-stages span{border:1px solid #cadcdd;border-radius:50px;padding:2px 9px;background:white}
+.learn-status{margin:15px 0;border:1px solid #cadee4;background:#f6fafb;padding:15px 17px;border-radius:12px}.learn-status-title{font-weight:800;color:#21465b}.learn-statline{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}.learn-statline>div{flex:1;min-width:130px;border:1px solid #dbe5ea;background:white;border-radius:9px;padding:11px 13px}.learn-statline strong{display:block;font-size:1.4rem;line-height:1.2;color:#1a4b60}.learn-statline small{font-size:.8rem;color:#536a77}.learn-status p{font-size:.88rem;color:#516979;margin:6px 0}
+.recommended{margin:20px 0 12px;padding:18px;border:1px solid #bcdad5;border-radius:13px;background:#f5fbf9}.recommended h3{margin:0 0 8px;font-size:1.14rem;color:#21564c}.recommended p{margin:7px 0}.rec-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:9px;margin-top:12px}.rec-links button{border:1px solid #abcfc3;background:white;color:#185b50;text-align:left;font-weight:750;padding:12px;border-radius:9px;cursor:pointer}.rec-links button:hover{background:#e9f5f1}.rec-links button span{display:block;font-weight:450;font-size:.82rem;color:#496c6a;margin-top:4px}
+.demo-box{margin:14px 0;border:1px dashed #b0cad5;border-radius:11px;padding:10px 15px;background:#fbfdfe}.demo-box .smallbutton{margin-top:3px}.demo-box #sampleRec:not(.hidden){margin:10px 0 7px;border-top:1px solid #dfebec;padding-top:8px}.demo-box p{margin:9px 0;font-size:.92rem}
+.self-recall{background:#f6f9fc;border:1px solid #cddfe9;border-radius:14px;padding:19px;margin:22px 0}.self-recall h3{margin:0;color:#1a4058}.self-recall .recall-item{border:1px solid #d5e5eb;border-radius:10px;padding:14px;background:white;margin:13px 0}.recall-item label{font-weight:700;display:block;margin-top:9px}.recall-item input{width:110px;max-width:100%;padding:8px 10px;border-radius:7px;border:1px solid #aac6d0;margin:6px 7px 0 0}.recall-item input.wide{width:180px}.recall-fb{padding:10px 12px;border-radius:9px;background:#edf8f2;margin-top:9px}.recall-fb.issue{background:#fff4e8}.self-recall details{border:1px solid #d2e2e6;border-radius:8px;padding:7px 10px;margin-top:9px}.self-recall summary{cursor:pointer;font-weight:700;color:#21566b}
+@media(max-width:600px){.recommended{padding:13px}.self-recall{padding:13px}.learn-statline>div{min-width:110px}}
+@media print{.learn-status,.recommended,.demo-box,.self-recall,.preview-kicker,.progress-explanation{display:none!important}}
+
+/* Nemendaútgáfa: sýnishornsmerking og tilbúin dæmi eru ekki sýnileg. */
+.preview-kicker,.demo-box{display:none!important}
 </style>
 <script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" onload="window.mathJaxLoaded?.()"></script></head><body>
-<header class="top"><div class="container"><div class="eyebrow">STÆR2AF05 · Algebra, föll og mengi</div><h1>Vefbók – Vika 1</h1><p>19.–23. október 2026 · Kannaðu skilning þinn áður en þú leysir skiladæmi vikunnar.</p></div></header>
+<header class="top"><div class="container"><div class="preview-kicker">SÝNISHORN · RANNSÓKNAUPPLÝSTAR ENDURBÆTUR · EKKI BIRT NEMENDUM</div><div class="eyebrow">STÆR2AF05 · Algebra, föll og mengi</div><h1>Vefbók – Vika 1</h1><p>19.–23. október 2026 · Prófaðu skilning þinn, fáðu gagnlega endurgjöf og veldu upprifjun sem hentar þér.</p></div></header>
 <nav class="tabshell screenonly" aria-label="Hlutar vefbókar"><div class="container tabs"><button type="button" data-tab="quiz" aria-selected="true">Prófaðu skilninginn</button><button type="button" data-tab="task" id="taskTab" aria-selected="false" disabled>Skiladæmi vikunnar <span id="lock" aria-hidden="true" class="lockmark">· læst</span></button><button type="button" data-tab="results" aria-selected="false">Niðurstöður</button><button type="button" data-tab="review" aria-selected="false">Upprifjun í stærðfræði · valfrjálst</button></div></nav>
 <main class="container">
  <section id="view-quiz" class="section">
   <h2>Prófaðu skilninginn</h2>
   <p>Þegar þú hefur unnið æfingadæmi vikunnar í kennslubókinni skaltu prófa skilning þinn hér. Þú færð sjálfvirka endurgjöf og getur lært af mistökum áður en þú byrjar á skiladæminu.</p>
   <div class="intro"><p><strong>Svona virkar þetta:</strong> Veldu svar og smelltu á <strong>Athuga svar</strong>. Lestu endurgjöfina og prófaðu aftur ef þú vilt.</p><p>Skiladæmið birtist þegar þú hefur svarað <strong>öllum spurningunum</strong>. Þú þarft ekki að svara öllu rétt í fyrstu tilraun.</p></div>
-  <div class="progresshead"><strong id="progressLabel">0 af 8 spurningum lokið</strong><span class="note">Fyrstu svörin eru skráð í niðurstöðum.</span></div>
+  <div class="progresshead"><strong id="progressLabel">0 af 8 spurningum lokið</strong></div>
   <div class="progress" aria-hidden="true"><div id="progressFill"></div></div>
   <div id="questions"></div>
   <div id="quizLocked" class="notice"><strong>Skiladæmið er enn læst.</strong> Svaraðu öllum spurningunum og lestu endurgjöfina til að opna það.</div>
@@ -96,9 +112,12 @@
   <h1 class="printtitle">Niðurstöður – Vika 1</h1><h2>Niðurstöður</h2>
   <p class="print-meta">STÆR2AF05 · Vefbók – Vika 1 · Prófaðu skilninginn</p>
   <p class="results-note">Yfirlitið sýnir hvort <strong>fyrsta svar við hverri spurningu</strong> var rétt eða rangt. Það er ekki einkunn og breytist ekki þótt þú reynir aftur.</p>
+  <div class="learn-status screenonly"><span class="learn-status-title">Hvað segir framvindan?</span><div class="learn-statline"><div><strong id="attemptedMetric">0 / 8</strong><small>Spurningar prófaðar</small></div><div><strong id="firstMetric">0 / 8</strong><small>Rétt í fyrstu tilraun</small></div><div><strong id="wrongMetric">0 / 8</strong><small>Rangt í fyrstu tilraun</small></div></div><p>Þessi átta svör hjálpa til við að finna atriði til upprifjunar. Þau eru ekki fullnaðarmat á kunnáttu þinni.</p></div>
   <div class="metrics"><div class="metric"><div class="number" id="correctCount">0</div><div class="caption">Rétt í fyrstu tilraun</div></div><div class="metric"><div class="number" id="wrongCount">0</div><div class="caption">Rangt í fyrstu tilraun</div></div></div>
   <div class="tablewrap"><table><thead><tr><th>Nr.</th><th>Viðfangsefni</th><th>Fyrsta tilraun</th></tr></thead><tbody id="resultRows"></tbody></table></div>
   <p class="print-meta" id="finishNote"></p>
+  <div id="recommendedTopics" class="recommended screenonly" aria-live="polite"></div>
+  <div class="demo-box screenonly"><button id="sampleRecBtn" type="button" class="smallbutton">Skoða dæmi um ráðlagða upprifjun</button><div id="sampleRec" class="hidden" aria-live="polite"><p><strong>SÝNIDÆMI – tilbúnar niðurstöður:</strong> Nemandi svaraði nokkrum brotaspurningum rangt í fyrstu tilraun.</p><p>Ábending: <strong>Brot og samnefnarar</strong> gæti verið gagnlegur kafli til að rifja upp. Þetta breytir hvorki þínum svörum né vistun.</p><button type="button" data-open-review="brot" class="primary">Fara í Brot og samnefnara</button></div></div>
   <div class="screenonly"><button id="printBtn" class="primary printbtn" disabled type="button">Prenta niðurstöður / Vista sem PDF</button><p class="note">Prentun er í boði þegar öllum spurningum hefur verið svarað. Veldu <strong>Vista sem PDF</strong> í prentglugganum og skilaðu skjalinu í Canvas.</p><button id="resetBtn" class="reset" type="button">Núllstilla svör á þessu tæki</button></div>
  </section>
 
@@ -109,6 +128,7 @@
 <div aria-live="polite" id="reviewProgress" class="review-progress">Valfrjáls verkefni · engin svör enn.</div>
 <div id="reviewNavigation"></div>
 <div id="reviewActivities"></div>
+  <div id="selfRecall" class="self-recall screenonly" aria-labelledby="recallTitle"></div>
 <p class="review-help">Framvinda upprifjunarinnar vistast aðeins í þessum vafra (ef vistun er leyfð). Hún er ekki hluti af vikuskilum.</p>
 <button class="reset" id="reviewReset" type="button">Byrja upprifjun upp á nýtt</button>
 </section>
@@ -135,9 +155,8 @@ function renderQuestions(){let contents='';data.forEach((q,i)=>{const a=state.an
 contents+=`<article class="question" id="q_${q.id}"><div class="qtop">SPURNING ${i+1} · ${q.title}</div><div class="prompt">${q.prompt}</div><div class="options">`;
 q.options.forEach((v,j)=>{contents+=`<label class="opt"><input type="radio" name="q_${q.id}" value="${j}" ${current===j?'checked':''}><span>${v}</span></label>`;});
 contents+=`</div><button type="button" class="smallbutton" data-check="${q.id}">Athuga svar</button>`;
-if(a){const good=current===q.correct;contents+=`<div class="fb ${good?'':'wrong'}" role="status"><h4>${good?'Rétt svar.':'Skoðaðu þetta atriði.'}</h4><p>${q.feedback[current]}</p>`;
-if(q.explanation)contents+=`<div class="explain">${q.explanation}</div>`;
-if(q.more)contents+=`<details class="detail"><summary>Sjá nánari skýringu</summary><div class="detail-inner">${q.more}</div></details>`;
+if(a){const good=current===q.correct;contents+=`<div class="fb ${good?'':'wrong'}" role="status"><h4>${good?'Rétt svar.':'Skoðaðu þetta atriði og reyndu aftur.'}</h4><p>${q.feedback[current]}</p>`;
+if(q.explanation||q.more)contents+=`<details class="detail"><summary>Sjá nánari skýringu</summary><div class="detail-inner">${q.explanation?`<div class="explain">${q.explanation}</div>`:''}${q.more?`<div class="explain">${q.more}</div>`:''}</div></details>`;
 contents+='</div>';}
 contents+='</article>';});
 const root=el('questions');if(mathReady)window.MathJax?.typesetClear?.([root]);root.innerHTML=contents;
@@ -147,10 +166,29 @@ if(!selected){alert('Veldu svar áður en þú athugar.');return;}
 const v=Number(selected.value);const prev=state.answers[q.id];state.answers[q.id]={first:prev?.first??v,last:v};save();renderQuestions();progress();el('q_'+q.id).scrollIntoView({block:'center',behavior:'instant'});
 }));
 root.querySelectorAll('details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)typeset(d);}));typeset(root);}
-function renderResults(){let correct=0,wrong=0;el('resultRows').innerHTML=data.map((q,i)=>{const a=state.answers[q.id];let val='Ekki svarað',cl='';if(a){if(a.first===q.correct){correct++;val='Rétt';cl='right';}else{wrong++;val='Rangt';cl='wrong-text';}}return `<tr><td>${i+1}</td><td>${q.title}</td><td class="${cl}">${val}</td></tr>`;}).join('');el('correctCount').textContent=correct;el('wrongCount').textContent=wrong;el('printBtn').disabled=!unlocked();el('finishNote').textContent=unlocked()?`Öllum ${data.length} spurningunum svarað. Rétt í fyrstu tilraun: ${correct}. Rangt í fyrstu tilraun: ${wrong}.`:`Svarað hefur verið ${completed()} af ${data.length} spurningum. Prentun opnast þegar öllum er lokið.`;}
+// Ábendingarnar breyta hvorki svaraskráningu né skylduverkefnum.
+const reviewGroups={
+ 'svigar':{label:'Forgangsröðun og svigar',ids:['svigar'],reason:'Formerki og svigareglur komu fyrir í svari þínu.'},
+ 'brot':{label:'Brot og samnefnarar',ids:['skilyrdi','sameining','allir-lidir','kross','villugreining','adferdir'],reason:'Svar við dæmi um brot, nefnara eða samnefnara gæti verið tilefni til upprifjunar.'},
+ 'jofnur':{label:'Jöfnur og jafngild skref',ids:['sannprof','allir-lidir','kross','villugreining','adferdir'],reason:'Skoðaðu reglur um jafngild skref og sannprófun.'}
+};
+function renderRecommendations(correct){
+ const target=el('recommendedTopics');if(!target)return;
+ const tried=completed();el('attemptedMetric').textContent=`${tried} / ${data.length}`;
+ el('firstMetric').textContent=`${correct} / ${tried||data.length}`;
+ el('wrongMetric').textContent=`${Math.max(0,tried-correct)} / ${tried||data.length}`;
+ const wrongIds=data.filter(q=>Number.isInteger(state.answers[q.id]?.first)&&state.answers[q.id].first!==q.correct).map(q=>q.id);
+ if(!wrongIds.length){target.innerHTML=tried?'<h3>Áframhaldandi æfing</h3><p>Þú hefur ekki svarað neinni spurningu rangt í fyrstu tilraun. Þú getur samt valið hvaða upprifjunarkafla sem er til að festa þekkinguna betur.</p>':'<h3>Hvaða efni væri gott að rifja upp?</h3><p>Þegar þú hefur svarað spurningum í „Prófaðu skilninginn“ geta birst tillögur að viðeigandi upprifjun hér. Þú getur líka valið kafla sjálfur strax.</p>';return;}
+ const scored=Object.entries(reviewGroups).map(([id,g])=>({id,...g,score:g.ids.filter(x=>wrongIds.includes(x)).length})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,2);
+ target.innerHTML=`<h3>Hvað gæti hjálpað næst?</h3><p>Út frá fyrstu tilraunum þínum gæti verið gagnlegt að rifja upp eftirfarandi. Þetta eru <strong>ábendingar, ekki greining á færni</strong>. Upprifjunin er valfrjáls.</p><div class="rec-links">${scored.map(g=>`<button type="button" data-open-review="${g.id}">${g.label}<span>${g.reason}</span></button>`).join('')}</div>`;
+}
+function openSuggestedReview(topic){setTab('review');document.dispatchEvent(new CustomEvent('vefbok:opna-upprifjun',{detail:{topic}}));}
+document.addEventListener('click',e=>{const btn=e.target.closest('[data-open-review]');if(btn)openSuggestedReview(btn.dataset.openReview);});
+function renderResults(){let correct=0,wrong=0;el('resultRows').innerHTML=data.map((q,i)=>{const a=state.answers[q.id];let val='Ekki svarað',cl='';if(a){if(a.first===q.correct){correct++;val='Rétt';cl='right';}else{wrong++;val='Rangt';cl='wrong-text';}}return `<tr><td>${i+1}</td><td>${q.title}</td><td class="${cl}">${val}</td></tr>`;}).join('');el('correctCount').textContent=correct;el('wrongCount').textContent=wrong;el('printBtn').disabled=!unlocked();el('finishNote').textContent=unlocked()?`Öllum ${data.length} spurningunum svarað. Rétt í fyrstu tilraun: ${correct}. Rangt í fyrstu tilraun: ${wrong}.`:`Svarað hefur verið ${completed()} af ${data.length} spurningum. Prentun opnast þegar öllum er lokið.`;renderRecommendations(correct);}
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
 el('goTask').addEventListener('click',()=>setTab('task'));
 el('printBtn').addEventListener('click',()=>{renderResults();if(unlocked())window.print();});
+el('sampleRecBtn').addEventListener('click',()=>{const c=el('sampleRec');c.classList.toggle('hidden');el('sampleRecBtn').textContent=c.classList.contains('hidden')?'Skoða dæmi um ráðlagða upprifjun':'Fela sýnidæmið';});
 el('resetBtn').addEventListener('click',()=>{if(confirm('Viltu örugglega núllstilla öll svörin þín í þessari vefbók?')){state=fresh();save();renderQuestions();progress();renderResults();setTab('quiz');}});
 renderQuestions();progress();renderResults();setTab('quiz');if(window.MathJax?.startup?.promise)window.MathJax.startup.promise.then(()=>{mathReady=true;typeset(document.body);});
 })();
@@ -177,7 +215,9 @@ function makeContent(q){const a=current(q.id);let html='';
  if(q.kind==='num')html+=`<label for="rev_num_${q.id}"><strong>Svar:</strong></label> <input id="rev_num_${q.id}" class="review-number" type="text" inputmode="decimal" autocomplete="off" placeholder="Skrifaðu tölu" value="${escapeText(a.raw||'')}">`;
  if(q.kind==='match')html+=q.pairs.map((x,i)=>`<div class="pair-row"><strong>${x[0]}</strong><select aria-label="Paraðu ${escapeText(x[0].replace(/\\\(|\\\)/g,''))}" data-pair="${i}">${matchingOptions(q,a.values?.[i])}</select></div>`).join('');
  if(q.kind==='order'){const seq=a.order || q.steps.map((_,i)=>i);html+=`<div class="review-help">Notaðu örvarnar til að færa skref upp eða niður.</div><div class="order-list">`+seq.map((step,i)=>`<div class="order-row"><div><strong>${i+1}.</strong> ${q.steps[step]}</div><div class="order-controls"><button type="button" data-move="${i}" data-dir="up" ${i===0?'disabled':''} aria-label="Færa skref ${i+1} upp">↑</button><button type="button" data-move="${i}" data-dir="down" ${i===seq.length-1?'disabled':''} aria-label="Færa skref ${i+1} niður">↓</button></div></div>`).join('')+'</div>';}
- html+=`<div class="review-action"><button type="button" class="smallbutton" data-check-review="${q.id}">Athuga svar</button>${a.done?'<span class="note">Leyst · þú mátt æfa aftur</span>':''}</div><div id="review_fb_${q.id}"></div>`;return html;
+ html+=`<div class="review-action"><button type="button" class="smallbutton" data-check-review="${q.id}">Athuga svar</button>${a.done?'<span class="note">Leyst · þú mátt æfa aftur</span>':''}</div><div id="review_fb_${q.id}"></div>`;
+ if((a.attempts||0)>0){const explanation=q.detail||q.note||'Lestu skýringuna við verkefnið og prófaðu aftur.';html+=`<details class="detail"><summary>Skoða fyrri skýringu</summary><div class="detail-inner">${explanation}</div></details>`;}
+ return html;
 }
 function feedback(q,a,correct,message,more=''){const fb=el('review_fb_'+q.id);fb.innerHTML=`<div class="review-response ${correct?'':'incorrect'}" role="status"><strong>${correct?'Rétt.':'Athugaðu svarið.'}</strong><p>${message}</p>${more?`<details class="detail"><summary>${correct?'Sjá útfærð skref':'Sjá nánari skýringu'}</summary><div class="detail-inner">${more}</div></details>`:''}</div>`;fb.querySelectorAll('details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)math(d);}));math(fb);}
 function updateCard(q,success,message,more=''){const a=current(q.id);a.attempts=(a.attempts||0)+1;if(success)a.done=true;state.items[q.id]=a;save();feedback(q,a,success,message,more);updateProgress();}
@@ -240,8 +280,34 @@ function render(){
  updateProgress();refreshTopicCounters();if(c){math(root);root.querySelectorAll('details.rv-example').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)math(d);}));}
 }
 
+document.addEventListener('vefbok:opna-upprifjun',e=>{const id=e.detail?.topic;if(CATEGORIES.some(c=>c.id===id)){activeTopic=id;activeStep=0;render();el('reviewActivities').scrollIntoView({block:'start',behavior:'smooth'});}});
 el('reviewReset').addEventListener('click',()=>{if(!confirm('Viltu byrja valfrjálsu upprifjunina upp á nýtt? Svör í „Prófaðu skilninginn“ breytast ekki.'))return;state=defaultState();save();render();});
 render();
 })();
 </script>
+
+<script>
+(()=>{'use strict';
+ const root=document.getElementById('selfRecall');
+ root.innerHTML=`<h3>Stutt blönduð æfing – án svarmöguleika</h3>
+ <p class="muted">Til að kanna hvort þú getir sjálfur reiknað án þess að þekkja rétt svar úr lista. Þetta er valfrjálst sýnishorn; svörin teljast ekki með 15 upprifjunarverkefnunum.</p>
+ <div class="recall-item"><strong>1 · Forgangsröðun</strong><p>Reiknaðu \\(5+3\\cdot2\\).</p><label for="recA">Svar</label><input type="text" id="recA" inputmode="numeric" placeholder="Tala"><button type="button" class="smallbutton" data-recall="A">Athuga svar</button><div id="recAFb" aria-live="polite"></div></div>
+ <div class="recall-item"><strong>2 · Einföldun stæðu</strong><p>Einfaldaðu \\(5x+2-3x+4\\). Hvað er stuðullinn við \\(x\\) og hvað er fastaliðurinn?</p><label for="recB1">Stuðull við x</label><input type="text" id="recB1" inputmode="numeric" placeholder="Tala"><label for="recB2">Fastaliður</label><input type="text" id="recB2" inputmode="numeric" placeholder="Tala"><button type="button" class="smallbutton" data-recall="B">Athuga svar</button><div id="recBFb" aria-live="polite"></div></div>
+ <div class="recall-item"><strong>3 · Brot og samnefnarar</strong><p>Leggðu saman \\(\\frac13+\\frac16\\). Skrifaðu svarið sem brot, t.d. 1/2.</p><label for="recC">Svar</label><input type="text" id="recC" class="wide" placeholder="Til dæmis 1/2"><button type="button" class="smallbutton" data-recall="C">Athuga svar</button><div id="recCFb" aria-live="polite"></div></div>`;
+ const num=id=>{const v=document.getElementById(id).value.trim().replace(',','.');return v===''?NaN:Number(v)};
+ function fraction(s){const v=s.replace(/\s+/g,'').replace(',','.');if(/^[-+]?\d+\/[-+]?\d+$/.test(v)){const [p,q]=v.split('/').map(Number);return q? p/q:NaN;} if(/^[-+]?(\d+(\.\d*)?|\.\d+)$/.test(v))return Number(v);return NaN;}
+ const data={
+ A:{valid:()=>num('recA')===11,hint:'Reiknaðu margföldunina fyrst, og leggðu síðan saman.',detail:'\\[5+3\\cdot2=5+6=11.\\]'},
+ B:{valid:()=>num('recB1')===2&&num('recB2')===6,hint:'Sameinaðu \\(x\\)-liðina annars vegar og fastaliðina hins vegar.','detail':'\\[5x+2-3x+4=(5x-3x)+(2+4)=2x+6.\\]'},
+ C:{valid:()=>Math.abs(fraction(document.getElementById('recC').value)-0.5)<1e-9,hint:'Finndu sameiginlegan nefnara. Báðir nefnarar ganga upp í 6.',detail:'\\[\\frac13+\\frac16=\\frac26+\\frac16=\\frac36=\\frac12.\\]'}
+ };
+ root.addEventListener('click',e=>{const b=e.target.closest('button[data-recall]');if(!b)return;const id=b.dataset.recall, q=data[id], fb=document.getElementById('rec'+id+'Fb'),ok=q.valid();
+ const hint=ok?'Rétt reiknað. Skoðaðu skrefin til að bera saman aðferðina.':'Ekki alveg. '+q.hint;
+ fb.innerHTML=`<div class="recall-fb ${ok?'':'issue'}"><strong>${ok?'Rétt.':'Prófaðu aftur.'}</strong><p>${hint}</p><details><summary>Sjá útfærða lausn</summary><div>${q.detail}</div></details></div>`;
+ if(window.MathJax?.typesetPromise)window.MathJax.typesetPromise([fb]).catch(()=>{});
+ });
+ if(window.MathJax?.startup?.promise)window.MathJax.startup.promise.then(()=>window.MathJax.typesetPromise([root])).catch(()=>{});
+})();
+</script>
+
 </body></html>
